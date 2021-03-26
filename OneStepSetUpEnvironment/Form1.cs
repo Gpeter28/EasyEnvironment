@@ -39,8 +39,11 @@ namespace OneSetSetUpEnvironment
             Button btn = new Button();
             btn.Location = new Point(ReletiveX, ReletiveY + 300);
             btn.Click += (object s, EventArgs eventArgs) => {
-                var url = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user";
-                Task.Run(() => DownLoadZip(url));
+                Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
+                var url = "https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/PCQQ2021.exe";
+
+
+                Task.Run(() => Download.DownLoadFile(url, AppDomain.CurrentDomain.BaseDirectory + "\\PCQQ2021.exe", "PCQQ2021.exe"));             
             };
             // https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user
 
@@ -49,68 +52,68 @@ namespace OneSetSetUpEnvironment
             MainPanel.Controls.Add(btn);
         }
 
-        public void DownLoadZip(string url)
-        {
-            try
-            {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                long remoteFileLength = GetHttpLength(url);
-                string path = @"F:\src\source code for 2019\CSharp\PersonalProgram\OneStepSetUpEnvironment\OneSetSetUpEnvironment\OneSetSetUpEnvironment\bin\Debug";
+        //public void DownLoadZip(string url)
+        //{
+        //    try
+        //    {
+        //        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        //        long remoteFileLength = GetHttpLength(url);
+        //        string path = @"F:\src\source code for 2019\CSharp\PersonalProgram\OneStepSetUpEnvironment\OneSetSetUpEnvironment\OneSetSetUpEnvironment\bin\Debug";
 
-                Console.WriteLine("in");
-                using (Stream readStream = request.GetResponse().GetResponseStream())
-                {
-                    byte[] byteArray = new byte[512];
+        //        Console.WriteLine("in");
+        //        using (Stream readStream = request.GetResponse().GetResponseStream())
+        //        {
+        //            byte[] byteArray = new byte[512];
 
-                    int contentSize = readStream.Read(byteArray, 0, byteArray.Length);
+        //            int contentSize = readStream.Read(byteArray, 0, byteArray.Length);
 
-                    long current = 0;
-                    ownUrl.Text = "start";
-                    Console.WriteLine("start");
-                    using (FileStream writeStream = new FileStream(path, FileMode.Create))
-                    {
-                        while (contentSize > 0)
-                        {
-                            current += contentSize;
-                            int percent = (int)(current * 100 / remoteFileLength);
-                            Console.WriteLine(percent);
-                            UpdateMessage(ownUrl.Text = percent.ToString());
+        //            long current = 0;
+        //            ownUrl.Text = "start";
+        //            Console.WriteLine("start");
+        //            using (FileStream writeStream = new FileStream(path, FileMode.Create))
+        //            {
+        //                while (contentSize > 0)
+        //                {
+        //                    current += contentSize;
+        //                    int percent = (int)(current * 100 / remoteFileLength);
+        //                    Console.WriteLine(percent);
+        //                    UpdateMessage(ownUrl.Text = percent.ToString());
                             
-                            writeStream.Write(byteArray, 0, contentSize);
-                            contentSize = readStream.Read(byteArray, 0, byteArray.Length);
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                return;
-            }
-        }
+        //                    writeStream.Write(byteArray, 0, contentSize);
+        //                    contentSize = readStream.Read(byteArray, 0, byteArray.Length);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return;
+        //    }
+        //}
 
-        private static long GetHttpLength(string url)
-        {
-            long length = 0;
+        //private static long GetHttpLength(string url)
+        //{
+        //    long length = 0;
 
-            try
-            {
-                HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);// 打开网络连接
-                HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
+        //    try
+        //    {
+        //        HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);// 打开网络连接
+        //        HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
 
-                if (rsp.StatusCode == HttpStatusCode.OK)
-                {
-                    length = rsp.ContentLength;// 从文件头得到远程文件的长度
-                }
+        //        if (rsp.StatusCode == HttpStatusCode.OK)
+        //        {
+        //            length = rsp.ContentLength;// 从文件头得到远程文件的长度
+        //        }
 
-                rsp.Close();
-                return length;
-            }
-            catch (Exception e)
-            {
-                return length;
-            }
+        //        rsp.Close();
+        //        return length;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return length;
+        //    }
 
-        }
+        //}
 
         void UpdateMessage(string msg)
         {

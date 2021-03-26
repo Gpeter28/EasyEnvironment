@@ -11,65 +11,46 @@ namespace OneSetSetUpEnvironment
 {
     class Download
     {
-        public static bool DownLoadZip(string url)
+        public static void DownLoadFile(string url, string path, string name)
         {
+            Console.WriteLine("StartIn");
             try
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                long remoteFileLength = GetHttpLength(url);
-                string path = "./";
-
-                using(Stream readStream = request.GetResponse().GetResponseStream())
+                HttpWebRequest web = (HttpWebRequest)WebRequest.Create(url);
+                HttpWebResponse response = (HttpWebResponse)web.GetResponse();
+                Console.WriteLine("start");
+                using (Stream stream = response.GetResponseStream())
                 {
-                    byte[] byteArray = new byte[512];
-
-                    int contentSize = readStream.Read(byteArray, 0, byteArray.Length);
-
-                    long current = 0;
-                    using (FileStream writeStream = new FileStream(path, FileMode.Create))
+                    Console.WriteLine("inStream");
+                    using (FileStream fs = new FileStream(path, FileMode.Create))
                     {
-                        while (contentSize > 0)
-                        {
-                            current += contentSize;
-                            int percent = (int)(current * 100 / remoteFileLength);
+                        Console.WriteLine("Downloading");
+                        long totalDownloadedByte = 0;
+                        byte[] bytes = new byte[2048];
+                        int osize = stream.Read(bytes, 0, bytes.Length);
 
-                            System.Windows.Forms.MessageBox.Show(percent.ToString());
-                            writeStream.Write(byteArray, 0, contentSize);
-                            contentSize = readStream.Read(byteArray, 0, byteArray.Length);
+                        while (osize > 0)
+                        {
+                            totalDownloadedByte = osize + totalDownloadedByte;
+                            fs.Write(bytes, 0, osize);
+                            osize = stream.Read(bytes, 0, bytes.Length);
+
+                            if (totalDownloadedByte < response.ContentLength)
+                            {
+                                // Tracking...
+                                Console.WriteLine("[{0}%]  downloading '{1}' ({2}/{3})...", totalDownloadedByte * 100 / response.ContentLength, name, totalDownloadedByte, response.ContentLength);
+                            }
                         }
+                        // Global.Print("下载 '" + name + "' 完成   (大小: " + totalDownloadedByte.ToString() + " 字节) ...");
                     }
                 }
-                return true;
-            }
-            catch (Exception)
-            {
 
-                return false;
+            }catch(Exception e)
+            {
+                Console.WriteLine("error");
             }
         }
 
-        private static long GetHttpLength(string url)
-        {
-            long length = 0;
 
-            try
-            {
-                HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);// 打开网络连接
-                HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
-
-                if (rsp.StatusCode == HttpStatusCode.OK)
-                {
-                    length = rsp.ContentLength;// 从文件头得到远程文件的长度
-                }
-
-                rsp.Close();
-                return length;
-            }
-            catch (Exception e)
-            {
-                return length;
-            }
-
-        }
     }
 }

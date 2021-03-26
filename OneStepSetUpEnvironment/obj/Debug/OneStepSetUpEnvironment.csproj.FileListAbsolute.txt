@@ -1,0 +1,10 @@
+F:\src\VS2019Github WorkSpace\Gpeter28\OneStepSetEnvironment\OneStepSetUpEnvironment\bin\Debug\OneSetSetUpEnvironment.exe.config
+F:\src\VS2019Github WorkSpace\Gpeter28\OneStepSetEnvironment\OneStepSetUpEnvironment\bin\Debug\OneSetSetUpEnvironment.exe
+F:\src\VS2019Github WorkSpace\Gpeter28\OneStepSetEnvironment\OneStepSetUpEnvironment\bin\Debug\OneSetSetUpEnvironment.pdb
+F:\src\VS2019Github WorkSpace\Gpeter28\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneStepSetUpEnvironment.csprojAssemblyReference.cache
+F:\src\VS2019Github WorkSpace\Gpeter28\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.Form1.resources
+F:\src\VS2019Github WorkSpace\Gpeter28\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.Properties.Resources.resources
+F:\src\VS2019Github WorkSpace\Gpeter28\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneStepSetUpEnvironment.csproj.GenerateResource.cache
+F:\src\VS2019Github WorkSpace\Gpeter28\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneStepSetUpEnvironment.csproj.CoreCompileInputs.cache
+F:\src\VS2019Github WorkSpace\Gpeter28\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.exe
+F:\src\VS2019Github WorkSpace\Gpeter28\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.pdb
