@@ -21,7 +21,7 @@ namespace OneSetSetUpEnvironment
             InitializeComponent();
         }
         RichTextBox ownUrl = new RichTextBox();
-
+        var list = new Dictionary<string, string>();
         public void MainFormDownLoad(string url, string path, string name)
         {
             try
@@ -47,7 +47,7 @@ namespace OneSetSetUpEnvironment
                             {
                                 UpdateProcessBar(totalDownloadedByte * 100 / response.ContentLength);
                                 // Tracking...
-                                Console.WriteLine("[{0}%]  downloading '{1}' ({2}/{3})...", totalDownloadedByte * 100 / response.ContentLength, name, totalDownloadedByte, response.ContentLength);
+                                // Console.WriteLine("[{0}%]  downloading '{1}' ({2}/{3})...", totalDownloadedByte * 100 / response.ContentLength, name, totalDownloadedByte, response.ContentLength);
                             }
 
                             
@@ -93,9 +93,29 @@ namespace OneSetSetUpEnvironment
             btn.Click += (object s, EventArgs eventArgs) => {
                 Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
                 var url = "https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/PCQQ2021.exe";
+                var Msg = Config.ReadConfig();
 
+                
 
-                Task.Run(() => MainFormDownLoad(url, AppDomain.CurrentDomain.BaseDirectory + "\\PCQQ2021.exe", "PCQQ2021.exe"));             
+                var Line = Msg.Split('\n');
+                
+                foreach(var config in Line)
+                {
+                    if(config != string.Empty)
+                    {
+                        var final = config.Split(' ');
+
+                        // Remove /r       => Probably Have more Great Method;
+                        list.Add(final[0], final[1].Substring(0, final[1].Length - 1));
+                    }        
+                }
+
+                foreach(var i in list)
+                {
+                    Console.WriteLine(i.Key +  " " + i.Value);
+                }
+
+                // Task.Run(() => MainFormDownLoad(url, AppDomain.CurrentDomain.BaseDirectory + "\\PCQQ2021.exe", "PCQQ2021.exe"));             
             };
             // https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user
 
