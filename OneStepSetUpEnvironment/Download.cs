@@ -11,21 +11,18 @@ namespace OneSetSetUpEnvironment
 {
     class Download
     {
-        public static void DownLoadFile(string url, string path, string name)
+        public static void DownLoadFile(string url, string path, string name, MainForm mainForm)
         {
-            Console.WriteLine("StartIn");
             try
             {
                 HttpWebRequest web = (HttpWebRequest)WebRequest.Create(url);
                 HttpWebResponse response = (HttpWebResponse)web.GetResponse();
-                Console.WriteLine("start");
                 using (Stream stream = response.GetResponseStream())
                 {
-                    Console.WriteLine("inStream");
                     using (FileStream fs = new FileStream(path, FileMode.Create))
                     {
-                        Console.WriteLine("Downloading");
                         long totalDownloadedByte = 0;
+
                         byte[] bytes = new byte[2048];
                         int osize = stream.Read(bytes, 0, bytes.Length);
 
