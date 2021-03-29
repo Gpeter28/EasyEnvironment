@@ -18,3 +18,4 @@ F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug
 F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneStepSetUpEnvironment.csproj.CoreCompileInputs.cache
 F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.exe
 F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.pdb
+F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.CustomerControls.MyList.resources

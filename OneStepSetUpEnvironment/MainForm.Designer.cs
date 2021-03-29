@@ -28,32 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("VSCode");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("F", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("VSCode");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("F", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newTool_New = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.ProcessBar_DownLoad = new System.Windows.Forms.ProgressBar();
             this.LeftPanel = new System.Windows.Forms.Panel();
             this.Menu.SuspendLayout();
-            this.MainPanel.SuspendLayout();
-            this.LeftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
+            this.treeView1.Location = new System.Drawing.Point(0, 38);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "节点1";
-            treeNode1.Text = "VSCode";
-            treeNode2.Name = "节点0";
-            treeNode2.Text = "F";
+            treeNode5.Name = "节点1";
+            treeNode5.Text = "VSCode";
+            treeNode6.Name = "节点0";
+            treeNode6.Text = "F";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
-            this.treeView1.Size = new System.Drawing.Size(174, 539);
+            treeNode6});
+            this.treeView1.Size = new System.Drawing.Size(126, 575);
             this.treeView1.TabIndex = 0;
             // 
             // Menu
@@ -62,7 +59,7 @@
             this.newToolStripMenuItem});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(930, 35);
+            this.Menu.Size = new System.Drawing.Size(960, 35);
             this.Menu.TabIndex = 1;
             this.Menu.Text = "menuStrip1";
             // 
@@ -84,31 +81,23 @@
             // 
             // MainPanel
             // 
-            this.MainPanel.Controls.Add(this.ProcessBar_DownLoad);
-            this.MainPanel.Location = new System.Drawing.Point(180, 77);
+            this.MainPanel.Location = new System.Drawing.Point(133, 38);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(750, 539);
+            this.MainPanel.Size = new System.Drawing.Size(827, 578);
             this.MainPanel.TabIndex = 2;
-            // 
-            // ProcessBar_DownLoad
-            // 
-            this.ProcessBar_DownLoad.Location = new System.Drawing.Point(329, 449);
-            this.ProcessBar_DownLoad.Name = "ProcessBar_DownLoad";
-            this.ProcessBar_DownLoad.Size = new System.Drawing.Size(134, 36);
-            this.ProcessBar_DownLoad.TabIndex = 0;
             // 
             // LeftPanel
             // 
-            this.LeftPanel.Controls.Add(this.treeView1);
-            this.LeftPanel.Location = new System.Drawing.Point(0, 77);
+            this.LeftPanel.Location = new System.Drawing.Point(0, 38);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(174, 539);
+            this.LeftPanel.Size = new System.Drawing.Size(127, 578);
             this.LeftPanel.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(930, 617);
+            this.ClientSize = new System.Drawing.Size(960, 617);
+            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.LeftPanel);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.Menu);
@@ -117,8 +106,6 @@
             this.Text = "MainForm";
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
-            this.MainPanel.ResumeLayout(false);
-            this.LeftPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,7 +119,6 @@
         private System.Windows.Forms.ToolStripMenuItem newTool_New;
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Panel LeftPanel;
-        private System.Windows.Forms.ProgressBar ProcessBar_DownLoad;
     }
 }
 
