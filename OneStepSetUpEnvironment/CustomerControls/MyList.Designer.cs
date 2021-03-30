@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.processBar_Download = new System.Windows.Forms.ProgressBar();
-            this.label_FileName = new System.Windows.Forms.Label();
             this.pictureBox_Img = new System.Windows.Forms.PictureBox();
             this.label_Download = new System.Windows.Forms.Label();
             this.btn_StartStop = new System.Windows.Forms.Button();
             this.label_num = new System.Windows.Forms.Label();
+            this.txtBox_DownURL = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Img)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,16 +43,6 @@
             this.processBar_Download.Name = "processBar_Download";
             this.processBar_Download.Size = new System.Drawing.Size(182, 31);
             this.processBar_Download.TabIndex = 0;
-            // 
-            // label_FileName
-            // 
-            this.label_FileName.AutoSize = true;
-            this.label_FileName.Font = new System.Drawing.Font("宋体", 15F);
-            this.label_FileName.Location = new System.Drawing.Point(362, 14);
-            this.label_FileName.Name = "label_FileName";
-            this.label_FileName.Size = new System.Drawing.Size(69, 20);
-            this.label_FileName.TabIndex = 1;
-            this.label_FileName.Text = "label1";
             // 
             // pictureBox_Img
             // 
@@ -94,15 +84,23 @@
             this.label_num.TabIndex = 5;
             this.label_num.Text = "label1";
             // 
+            // txtBox_DownURL
+            // 
+            this.txtBox_DownURL.Font = new System.Drawing.Font("宋体", 15F);
+            this.txtBox_DownURL.Location = new System.Drawing.Point(109, 8);
+            this.txtBox_DownURL.Name = "txtBox_DownURL";
+            this.txtBox_DownURL.Size = new System.Drawing.Size(322, 30);
+            this.txtBox_DownURL.TabIndex = 6;
+            // 
             // MyList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtBox_DownURL);
             this.Controls.Add(this.label_num);
             this.Controls.Add(this.btn_StartStop);
             this.Controls.Add(this.label_Download);
             this.Controls.Add(this.pictureBox_Img);
-            this.Controls.Add(this.label_FileName);
             this.Controls.Add(this.processBar_Download);
             this.Name = "MyList";
             this.Size = new System.Drawing.Size(800, 50);
@@ -116,10 +114,10 @@
         #endregion
 
         private System.Windows.Forms.ProgressBar processBar_Download;
-        private System.Windows.Forms.Label label_FileName;
         private System.Windows.Forms.PictureBox pictureBox_Img;
         private System.Windows.Forms.Label label_Download;
         private System.Windows.Forms.Button btn_StartStop;
         private System.Windows.Forms.Label label_num;
+        private System.Windows.Forms.TextBox txtBox_DownURL;
     }
 }

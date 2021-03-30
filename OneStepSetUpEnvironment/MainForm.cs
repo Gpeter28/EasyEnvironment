@@ -74,7 +74,7 @@ namespace OneSetSetUpEnvironment
         //{
 
         //}
-
+        public static string DirPath = AppDomain.CurrentDomain.BaseDirectory;
 
         private void newTool_New_Click(object sender, EventArgs e)
         {
