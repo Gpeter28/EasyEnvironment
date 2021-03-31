@@ -30,6 +30,7 @@ namespace OneSetSetUpEnvironment.CustomerControls
             get { return processBar_Download.Value; }
             set { processBar_Download.Value = value; }
         }
+        
 
 
         public double ConvertStringToDouble(string s)
@@ -54,7 +55,7 @@ namespace OneSetSetUpEnvironment.CustomerControls
 
         private void MyList_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btn_StartStop_Click(object sender, EventArgs e)

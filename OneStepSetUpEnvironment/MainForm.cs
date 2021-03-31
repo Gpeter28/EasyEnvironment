@@ -85,6 +85,7 @@ namespace OneSetSetUpEnvironment
             myList.Name = num.ToString();
             myList.Location = new Point(0, (num - 1)* 50);
             myList.NumOfList = num.ToString();
+            
 
             Console.WriteLine(MainPanel.Location.X + " " + MainPanel.Location.Y);
             Console.WriteLine(myList.Location.X +  " " + myList.Location.Y);
