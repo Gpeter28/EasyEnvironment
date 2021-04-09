@@ -9,7 +9,7 @@ namespace OneSetSetUpEnvironment
 {
     class Config
     {
-        public static string ReadConfig()
+        public static Dictionary<string, string> ReadConfig()
         {
             string msg = "";
             using (FileStream fsRead = new FileStream(@".\config.txt", FileMode.Open))
@@ -22,7 +22,20 @@ namespace OneSetSetUpEnvironment
 
                 msg = System.Text.Encoding.UTF8.GetString(hByte);
             }
-            return msg;
+
+            var pairs = new Dictionary<string, string>();
+            var mm = msg.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var i in mm)
+            {
+                if (i.StartsWith(@"//"))
+                {
+                    continue;
+                }
+
+                var key = i.Split(' ');
+                pairs.Add(key[0], key[1]);
+            }
+            return pairs;
         }
 
         public static void WriteConfig(string config)

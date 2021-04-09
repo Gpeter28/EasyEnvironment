@@ -30,7 +30,12 @@ namespace OneSetSetUpEnvironment.CustomerControls
             get { return processBar_Download.Value; }
             set { processBar_Download.Value = value; }
         }
-        
+
+        public string URL
+        {
+            get { return txtBox_DownURL.Text; }
+            set { txtBox_DownURL.Text = value; }
+        }
 
 
         public double ConvertStringToDouble(string s)
@@ -63,10 +68,9 @@ namespace OneSetSetUpEnvironment.CustomerControls
             Console.WriteLine(MainForm.DirPath);
             if(txtBox_DownURL.Text != string.Empty)
             {
-                if(!File.Exists(MainForm.DirPath + "PCQQ2021.exe"))
+                if(!File.Exists(MainForm.DirPath + "qq.exe"))
                 {
-                    Task.Run(() => this.DownLoadFile(@"https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/PCQQ2021.exe", MainForm.DirPath + "PCQQ2021.exe", "PCQQ2021.exe"));
-
+                    Task.Run(() => this.DownLoadFile(txtBox_DownURL.Text, MainForm.DirPath + "qq.exe", "qq.exe"));
 
                     _ = (btn_StartStop.Text == "Start") ? btn_StartStop.Text = "Stop" : btn_StartStop.Text = "Start";
                 }
@@ -116,9 +120,15 @@ namespace OneSetSetUpEnvironment.CustomerControls
                             }
                         }
 
-                        this.ProcessValue = 100;
-                        this.ProcessValuePercentage = 100;
-                        this.btn_StartStop.Text = "Start";
+
+                        Action action2 = new Action(() =>
+                        {
+                            this.ProcessValue = 100;
+                            this.ProcessValuePercentage = 100;
+                            this.btn_StartStop.Text = "Start";
+                        });
+
+                        this.Invoke(action2);
                         // Global.Print("下载 '" + name + "' 完成   (大小: " + totalDownloadedByte.ToString() + " 字节) ...");
                     }
                 }
