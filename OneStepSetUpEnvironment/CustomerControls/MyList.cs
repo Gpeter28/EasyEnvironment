@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using OneSetSetUpEnvironment;
 
 namespace OneSetSetUpEnvironment.CustomerControls
 {
@@ -36,6 +37,8 @@ namespace OneSetSetUpEnvironment.CustomerControls
             get { return txtBox_DownURL.Text; }
             set { txtBox_DownURL.Text = value; }
         }
+
+        public NewTask MyTask { get; set; }
 
 
         public double ConvertStringToDouble(string s)
@@ -66,11 +69,12 @@ namespace OneSetSetUpEnvironment.CustomerControls
         private void btn_StartStop_Click(object sender, EventArgs e)
         {
             Console.WriteLine(MainForm.DirPath);
+            var s = $"{MyTask.Name}.exe";
             if(txtBox_DownURL.Text != string.Empty)
             {
-                if(!File.Exists(MainForm.DirPath + "qq.exe"))
+                if(!File.Exists(MainForm.DirPath + s))
                 {
-                    Task.Run(() => this.DownLoadFile(txtBox_DownURL.Text, MainForm.DirPath + "qq.exe", "qq.exe"));
+                    Task.Run(() => this.DownLoadFile(txtBox_DownURL.Text, MainForm.DirPath + s, s));
 
                     _ = (btn_StartStop.Text == "Start") ? btn_StartStop.Text = "Stop" : btn_StartStop.Text = "Start";
                 }

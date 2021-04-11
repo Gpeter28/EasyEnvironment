@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OneSetSetUpEnvironment
 {
-    class NewTask
+    public class NewTask
     {
         public string Name { get; set; }
 
