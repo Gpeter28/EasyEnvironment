@@ -20,6 +20,8 @@ namespace OneSetSetUpEnvironment.CustomerControls
             InitializeComponent();
         }
 
+        //zzzzz
+
         public string NumOfList
         {
             get { return label_num.Text; }
