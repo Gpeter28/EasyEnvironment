@@ -180,6 +180,8 @@ namespace OneSetSetUpEnvironment
                     Name = i.Key,
                     Url = i.Value
                 };
+                var s = i.Key.ToLower();
+                myList.SetUpControls(Image.FromFile($"./Iron/{s}.png"));
 
                 myList.URL = i.Value;
 

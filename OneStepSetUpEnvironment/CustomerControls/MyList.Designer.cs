@@ -48,7 +48,7 @@
             // 
             this.pictureBox_Img.Location = new System.Drawing.Point(65, 3);
             this.pictureBox_Img.Name = "pictureBox_Img";
-            this.pictureBox_Img.Size = new System.Drawing.Size(38, 44);
+            this.pictureBox_Img.Size = new System.Drawing.Size(40, 40);
             this.pictureBox_Img.TabIndex = 2;
             this.pictureBox_Img.TabStop = false;
             // 
