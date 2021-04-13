@@ -148,11 +148,25 @@ namespace OneSetSetUpEnvironment
         {
             int num = MainPanel.Controls.Count + 1;
 
-            MyList myList = new MyList();
-            myList.Name = num.ToString();
-            myList.Location = new Point(0, (num - 1) * 50);
-            myList.NumOfList = num.ToString();
+            MyList myList = new MyList
+            {
+                Name = num.ToString(),
+                Location = new Point(0, (num - 1) * 50),
+                NumOfList = num.ToString()
+            };
             MainPanel.Controls.Add(myList);
+        }
+
+        public void UpdateList(Dictionary<string, string> list)
+        {
+            this.list = list;
+            ClearMainPanel();
+            CreateNewTask(list);
+        }
+
+        private void ClearMainPanel()
+        {
+            MainPanel.Controls.Clear();
         }
 
         private void CreateNewTask(Dictionary<string, string> keys)
@@ -161,15 +175,17 @@ namespace OneSetSetUpEnvironment
             {
                 int num = MainPanel.Controls.Count + 1;
 
-                MyList myList = new MyList();
-                myList.Name = num.ToString();
-                myList.Location = new Point(0, (num - 1) * 50);
-                myList.NumOfList = num.ToString();
-
-                myList.MyTask = new NewTask()
+                MyList myList = new MyList
                 {
-                    Name = i.Key,
-                    Url = i.Value
+                    Name = num.ToString(),
+                    Location = new Point(0, (num - 1) * 50),
+                    NumOfList = num.ToString(),
+
+                    MyTask = new NewTask()
+                    {
+                        Name = i.Key,
+                        Url = i.Value
+                    }
                 };
                 var s = i.Key.ToLower();
                 myList.SetUpControls(Image.FromFile($"./Iron/{s}.png"));
@@ -188,7 +204,7 @@ namespace OneSetSetUpEnvironment
 
             SaveConfigForm saveConfigForm = new SaveConfigForm();
             saveConfigForm.SetDictionary(list);
-            saveConfigForm.Show();
+            saveConfigForm.Show(this);
 
             // Config.WriteConfig(list);
         }

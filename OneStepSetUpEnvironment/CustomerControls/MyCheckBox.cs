@@ -15,6 +15,9 @@ namespace OneSetSetUpEnvironment.CustomerControls
         public MyCheckBox()
         {
             InitializeComponent();
+
+
+            this.cb_check.Checked = true;
         }
 
         public int Num
@@ -32,6 +35,22 @@ namespace OneSetSetUpEnvironment.CustomerControls
         public Image TaskImage
         {
             set { picBox_task.Image = value; }
+        }
+
+        public bool IsChecked
+        {
+            get { return cb_check.Checked; }
+            set
+            {
+                if (cb_check.Checked == true)
+                {
+                    cb_check.Checked = false;
+                }
+                else
+                {
+                    cb_check.Checked = true;
+                }
+            }
         }
     }
 }

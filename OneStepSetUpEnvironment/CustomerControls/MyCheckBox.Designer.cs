@@ -31,6 +31,7 @@
             this.lbl_Num = new System.Windows.Forms.Label();
             this.picBox_task = new System.Windows.Forms.PictureBox();
             this.lbl_TaskName = new System.Windows.Forms.Label();
+            this.cb_check = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_task)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,7 +39,7 @@
             // 
             this.lbl_Num.AutoSize = true;
             this.lbl_Num.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_Num.Location = new System.Drawing.Point(3, 18);
+            this.lbl_Num.Location = new System.Drawing.Point(3, 22);
             this.lbl_Num.Name = "lbl_Num";
             this.lbl_Num.Size = new System.Drawing.Size(62, 16);
             this.lbl_Num.TabIndex = 0;
@@ -62,10 +63,20 @@
             this.lbl_TaskName.TabIndex = 2;
             this.lbl_TaskName.Text = "label2";
             // 
+            // cb_check
+            // 
+            this.cb_check.Font = new System.Drawing.Font("宋体", 15F);
+            this.cb_check.Location = new System.Drawing.Point(267, 14);
+            this.cb_check.Name = "cb_check";
+            this.cb_check.Size = new System.Drawing.Size(30, 30);
+            this.cb_check.TabIndex = 3;
+            this.cb_check.UseVisualStyleBackColor = true;
+            // 
             // MyCheckBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cb_check);
             this.Controls.Add(this.lbl_TaskName);
             this.Controls.Add(this.picBox_task);
             this.Controls.Add(this.lbl_Num);
@@ -82,5 +93,6 @@
         private System.Windows.Forms.Label lbl_Num;
         private System.Windows.Forms.PictureBox picBox_task;
         private System.Windows.Forms.Label lbl_TaskName;
+        private System.Windows.Forms.CheckBox cb_check;
     }
 }

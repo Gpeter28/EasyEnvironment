@@ -51,8 +51,21 @@ namespace OneSetSetUpEnvironment
 
         private void Btn_Confirm_Click(object sender, EventArgs e)
         {
+            foreach(var control in MainPanel.Controls)
+            {
+                var checkbox = (MyCheckBox)control;
+                if (!checkbox.IsChecked)
+                {
+                    list.Remove(checkbox.TaskName);
+                }
+            }
+
             Config.WriteConfig(list);
             MessageBox.Show("Success Show");
+
+
+            MainForm mf = (MainForm)this.Owner;
+            mf.UpdateList(list);
             this.Close();
         }
     }

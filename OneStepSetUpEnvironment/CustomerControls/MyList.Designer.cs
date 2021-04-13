@@ -58,9 +58,9 @@
             this.label_Download.Font = new System.Drawing.Font("宋体", 15F);
             this.label_Download.Location = new System.Drawing.Point(625, 16);
             this.label_Download.Name = "label_Download";
-            this.label_Download.Size = new System.Drawing.Size(69, 20);
+            this.label_Download.Size = new System.Drawing.Size(19, 20);
             this.label_Download.TabIndex = 3;
-            this.label_Download.Text = "label2";
+            this.label_Download.Text = "0";
             // 
             // btn_StartStop
             // 
