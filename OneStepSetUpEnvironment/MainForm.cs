@@ -135,12 +135,7 @@ namespace OneSetSetUpEnvironment
         private void Load_MenuItem_Click(object sender, EventArgs e)
         {
             var s = Config.ReadConfig();
-            foreach(var i in s)
-            {
-                Console.WriteLine(i.Key + " " + i.Value);
-            }
             CreateNewTask(s);
-
         }
 
         private void New_MenuItem_Click(object sender, EventArgs e)
@@ -156,11 +151,6 @@ namespace OneSetSetUpEnvironment
             myList.Name = num.ToString();
             myList.Location = new Point(0, (num - 1) * 50);
             myList.NumOfList = num.ToString();
-
-
-            //Console.WriteLine(MainPanel.Location.X + " " + MainPanel.Location.Y);
-            //Console.WriteLine(myList.Location.X + " " + myList.Location.Y);
-            //Console.WriteLine(myList.NumOfList);
             MainPanel.Controls.Add(myList);
         }
 
@@ -184,11 +174,6 @@ namespace OneSetSetUpEnvironment
                 myList.SetUpControls(Image.FromFile($"./Iron/{s}.png"));
 
                 myList.URL = i.Value;
-
-
-                //Console.WriteLine(MainPanel.Location.X + " " + MainPanel.Location.Y);
-                //Console.WriteLine(myList.Location.X + " " + myList.Location.Y);
-                //Console.WriteLine(myList.NumOfList);
                 MainPanel.Controls.Add(myList);
             }
         }
