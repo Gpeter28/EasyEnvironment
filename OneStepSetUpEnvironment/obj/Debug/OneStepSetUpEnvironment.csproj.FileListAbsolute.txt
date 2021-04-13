@@ -19,3 +19,5 @@ F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug
 F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.exe
 F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.pdb
 F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.CustomerControls.MyList.resources
+F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.SaveConfigForm.resources
+F:\src\github repository\OneStepSetEnvironment\OneStepSetUpEnvironment\obj\Debug\OneSetSetUpEnvironment.CustomerControls.MyCheckBox.resources

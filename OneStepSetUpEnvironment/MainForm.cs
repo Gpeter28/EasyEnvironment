@@ -135,6 +135,7 @@ namespace OneSetSetUpEnvironment
         private void Load_MenuItem_Click(object sender, EventArgs e)
         {
             var s = Config.ReadConfig();
+            list = s;
             CreateNewTask(s);
         }
 
@@ -176,6 +177,20 @@ namespace OneSetSetUpEnvironment
                 myList.URL = i.Value;
                 MainPanel.Controls.Add(myList);
             }
+        }
+
+        private void Save_MenuItem_Click(object sender, EventArgs e)
+        {
+            if(list == null)
+            {
+                return;
+            }
+
+            SaveConfigForm saveConfigForm = new SaveConfigForm();
+            saveConfigForm.SetDictionary(list);
+            saveConfigForm.Show();
+
+            // Config.WriteConfig(list);
         }
     }
 }

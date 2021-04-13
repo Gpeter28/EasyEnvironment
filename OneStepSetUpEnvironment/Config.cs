@@ -47,5 +47,29 @@ namespace OneSetSetUpEnvironment
                 fsWrite.Write(hByte, 0, hByte.Length);
             }
         }
+
+        public static void WriteConfig(Dictionary<string, string> list)
+        {
+            var str = DictionaryToString(list);
+
+            using (FileStream fsWrite = new FileStream(@".\config_save.txt", FileMode.Create))
+            {
+                byte[] hByte = System.Text.Encoding.UTF8.GetBytes(str);
+
+                fsWrite.Write(hByte, 0, hByte.Length);
+            }
+        }
+
+        private static string DictionaryToString(Dictionary<string, string> list)
+        {
+            string str = string.Empty;
+
+            foreach(var i in list)
+            {
+                str += i.Key + " " + i.Value + $"\r\n";
+            }
+
+            return str;
+        }
     }
 }
