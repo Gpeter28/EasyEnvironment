@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.lbl_Num = new System.Windows.Forms.Label();
-            this.picBox_task = new System.Windows.Forms.PictureBox();
+            this.picBox_Task = new System.Windows.Forms.PictureBox();
             this.lbl_TaskName = new System.Windows.Forms.Label();
-            this.cb_check = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_task)).BeginInit();
+            this.checkBox_Select = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Task)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_Num
@@ -47,11 +47,11 @@
             // 
             // picBox_task
             // 
-            this.picBox_task.Location = new System.Drawing.Point(78, 3);
-            this.picBox_task.Name = "picBox_task";
-            this.picBox_task.Size = new System.Drawing.Size(45, 40);
-            this.picBox_task.TabIndex = 1;
-            this.picBox_task.TabStop = false;
+            this.picBox_Task.Location = new System.Drawing.Point(78, 3);
+            this.picBox_Task.Name = "picBox_task";
+            this.picBox_Task.Size = new System.Drawing.Size(45, 40);
+            this.picBox_Task.TabIndex = 1;
+            this.picBox_Task.TabStop = false;
             // 
             // lbl_TaskName
             // 
@@ -65,24 +65,24 @@
             // 
             // cb_check
             // 
-            this.cb_check.Font = new System.Drawing.Font("宋体", 15F);
-            this.cb_check.Location = new System.Drawing.Point(267, 14);
-            this.cb_check.Name = "cb_check";
-            this.cb_check.Size = new System.Drawing.Size(30, 30);
-            this.cb_check.TabIndex = 3;
-            this.cb_check.UseVisualStyleBackColor = true;
+            this.checkBox_Select.Font = new System.Drawing.Font("宋体", 15F);
+            this.checkBox_Select.Location = new System.Drawing.Point(267, 14);
+            this.checkBox_Select.Name = "cb_check";
+            this.checkBox_Select.Size = new System.Drawing.Size(30, 30);
+            this.checkBox_Select.TabIndex = 3;
+            this.checkBox_Select.UseVisualStyleBackColor = true;
             // 
             // MyCheckBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.cb_check);
+            this.Controls.Add(this.checkBox_Select);
             this.Controls.Add(this.lbl_TaskName);
-            this.Controls.Add(this.picBox_task);
+            this.Controls.Add(this.picBox_Task);
             this.Controls.Add(this.lbl_Num);
             this.Name = "MyCheckBox";
             this.Size = new System.Drawing.Size(300, 50);
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_task)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Task)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,8 +91,8 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_Num;
-        private System.Windows.Forms.PictureBox picBox_task;
+        private System.Windows.Forms.PictureBox picBox_Task;
         private System.Windows.Forms.Label lbl_TaskName;
-        private System.Windows.Forms.CheckBox cb_check;
+        private System.Windows.Forms.CheckBox checkBox_Select;
     }
 }

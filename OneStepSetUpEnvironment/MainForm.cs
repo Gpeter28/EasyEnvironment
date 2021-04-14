@@ -134,6 +134,9 @@ namespace OneSetSetUpEnvironment
 
         private void Load_MenuItem_Click(object sender, EventArgs e)
         {
+            ClearMainPanel();
+
+
             var s = Config.ReadConfig();
             list = s;
             CreateNewTask(s);
@@ -188,7 +191,7 @@ namespace OneSetSetUpEnvironment
                     }
                 };
                 var s = i.Key.ToLower();
-                myList.SetUpControls(Image.FromFile($"./Iron/{s}.png"));
+                myList.SetUpControls(Image.FromFile($"{Config.IronPath}\\{s}.png"));
 
                 myList.URL = i.Value;
                 MainPanel.Controls.Add(myList);
@@ -201,7 +204,6 @@ namespace OneSetSetUpEnvironment
             {
                 return;
             }
-
             SaveConfigForm saveConfigForm = new SaveConfigForm();
             saveConfigForm.SetDictionary(list);
             saveConfigForm.Show(this);

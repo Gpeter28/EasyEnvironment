@@ -7,12 +7,19 @@ using System.Threading.Tasks;
 
 namespace OneSetSetUpEnvironment
 {
+    
     class Config
     {
+        public static string FilePath = AppDomain.CurrentDomain.BaseDirectory;
+        public static string IronPath = Path.Combine(FilePath, "Data", "Iron");// $"{FilePath}\\Data\\Iron";
+        public static string ConfigPath = Path.Combine(FilePath, "Data", "Config");// $"{FilePath}\\Data\\Config";
+
+        public static string ConfigFileName = Path.Combine(ConfigPath, "config.txt");  // @"\config.txt";
+        public static string ConfigFileSaveName = Path.Combine(ConfigPath, "config_save.txt");// @".\config_save.txt";
         public static Dictionary<string, string> ReadConfig()
         {
             string msg = "";
-            using (FileStream fsRead = new FileStream(@".\config.txt", FileMode.Open))
+            using (FileStream fsRead = new FileStream(ConfigFileName, FileMode.Open))
             {
                 int fLen = (int)fsRead.Length;
 
@@ -40,7 +47,13 @@ namespace OneSetSetUpEnvironment
 
         public static void WriteConfig(string config)
         {
-            using(FileStream fsWrite = new FileStream(@".\config.txt", FileMode.Create))
+            if (!File.Exists(ConfigFileName))
+            {
+                File.Create(ConfigFileName);
+            }
+
+
+            using (FileStream fsWrite = new FileStream(ConfigFileSaveName, FileMode.Create))
             {
                 byte[] hByte = System.Text.Encoding.UTF8.GetBytes(config);
 
@@ -50,9 +63,13 @@ namespace OneSetSetUpEnvironment
 
         public static void WriteConfig(Dictionary<string, string> list)
         {
+            if (!File.Exists(ConfigFileName))
+            {
+                File.Create(ConfigFileName);
+            }
             var str = DictionaryToString(list);
 
-            using (FileStream fsWrite = new FileStream(@".\config_save.txt", FileMode.Create))
+            using (FileStream fsWrite = new FileStream(ConfigFileSaveName, FileMode.Create))
             {
                 byte[] hByte = System.Text.Encoding.UTF8.GetBytes(str);
 

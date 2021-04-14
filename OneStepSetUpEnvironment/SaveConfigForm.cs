@@ -38,7 +38,7 @@ namespace OneSetSetUpEnvironment
 
                 myCheckBox.Num = index++;
                 myCheckBox.TaskName = i.Key;
-                myCheckBox.TaskImage = Image.FromFile($"./Iron/{i.Key.ToLower()}.png");
+                myCheckBox.TaskImage = Image.FromFile($"{Config.IronPath}/{i.Key.ToLower()}.png");
                 MainPanel.Controls.Add(myCheckBox);
             }
         }

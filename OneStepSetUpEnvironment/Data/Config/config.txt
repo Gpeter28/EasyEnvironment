@@ -1,0 +1,5 @@
+VSCode https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user
+QQ https://down.qq.com/qqweb/PCQQ/PCQQ_EXE/PCQQ2021.exe
+QQMusic https://dldir1.qq.com/music/clntupate/QQMusicSetup.exe
+// Steam www.steam.com
+// Chrome www.chrome.com

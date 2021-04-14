@@ -17,7 +17,7 @@ namespace OneSetSetUpEnvironment.CustomerControls
             InitializeComponent();
 
 
-            this.cb_check.Checked = true;
+            this.checkBox_Select.Checked = true;
         }
 
         public int Num
@@ -34,21 +34,21 @@ namespace OneSetSetUpEnvironment.CustomerControls
 
         public Image TaskImage
         {
-            set { picBox_task.Image = value; }
+            set { picBox_Task.Image = value; }
         }
 
         public bool IsChecked
         {
-            get { return cb_check.Checked; }
+            get { return checkBox_Select.Checked; }
             set
             {
-                if (cb_check.Checked == true)
+                if (checkBox_Select.Checked == true)
                 {
-                    cb_check.Checked = false;
+                    checkBox_Select.Checked = false;
                 }
                 else
                 {
-                    cb_check.Checked = true;
+                    checkBox_Select.Checked = true;
                 }
             }
         }
