@@ -10,6 +10,6 @@ namespace OneSetSetUpEnvironment.Language
     // 正在学习中
     class InitLanguage
     {
-        
+
     }
 }

@@ -13,9 +13,11 @@ namespace OneSetSetUpEnvironment
         public static string FilePath = AppDomain.CurrentDomain.BaseDirectory;
         public static string IronPath = Path.Combine(FilePath, "Data", "Iron");// $"{FilePath}\\Data\\Iron";
         public static string ConfigPath = Path.Combine(FilePath, "Data", "Config");// $"{FilePath}\\Data\\Config";
+        public static string LogPath = Path.Combine(FilePath, "Data", "Log");
 
-        public static string ConfigFileName = Path.Combine(ConfigPath, "config.txt");  // @"\config.txt";
-        public static string ConfigFileSaveName = Path.Combine(ConfigPath, "config_save.txt");// @".\config_save.txt";
+        public static string ConfigFileName = Path.Combine(ConfigPath, "config.conf");  // @"\config.txt";
+        public static string ConfigFileSaveName = Path.Combine(ConfigPath, "config_save.conf");// @".\config_save.txt";
+        public static string LogFileName = Path.Combine(LogPath, "logs.log");
         public static Dictionary<string, string> ReadConfig()
         {
             string msg = "";
@@ -87,6 +89,16 @@ namespace OneSetSetUpEnvironment
             }
 
             return str;
+        }
+
+        private static void WriteLog(string msg)
+        {
+            using(var fsWrite = new FileStream(LogFileName, FileMode.Create))
+            {
+                byte[] hByte = System.Text.Encoding.UTF8.GetBytes(msg);
+
+                fsWrite.Write(hByte, 0, hByte.Length);
+            }
         }
     }
 }
