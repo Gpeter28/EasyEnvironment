@@ -98,6 +98,7 @@
     <EmbeddedResource Include="SaveConfigForm.resx">
       <DependentUpon>SaveConfigForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Language\zh-CN.ini" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
