@@ -51,6 +51,7 @@ namespace OneSetSetUpEnvironment
 
             }catch(Exception e)
             {
+                Logger.WriteLog($"{DateTime.Now} : {e.Message}");
                 Console.WriteLine(e.Message);
             }
         }

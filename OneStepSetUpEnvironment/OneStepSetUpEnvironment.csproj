@@ -60,7 +60,9 @@
       <DependentUpon>MyList.cs</DependentUpon>
     </Compile>
     <Compile Include="Download.cs" />
+    <Compile Include="Language\IniReader.cs" />
     <Compile Include="Language\InitLanguage.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +78,7 @@
     <Compile Include="SaveConfigForm.Designer.cs">
       <DependentUpon>SaveConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Update.cs" />
     <Compile Include="Util.cs" />
     <EmbeddedResource Include="CustomerControls\MyCheckBox.resx">
       <DependentUpon>MyCheckBox.cs</DependentUpon>

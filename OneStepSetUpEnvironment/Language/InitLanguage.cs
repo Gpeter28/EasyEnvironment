@@ -10,6 +10,19 @@ namespace OneSetSetUpEnvironment.Language
     // 正在学习中
     class InitLanguage
     {
+        public static bool ChangeLanguage(LanguageType type)
+        {
+            
 
+
+
+            return true;
+        }
     }
+
+    enum LanguageType
+    {
+        CHINESE,
+        ENGLISH
+    };
 }
