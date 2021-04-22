@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace OneSetSetUpEnvironment
 {
-    
     class Config
     {
         public static string FilePath = AppDomain.CurrentDomain.BaseDirectory;
@@ -19,6 +18,7 @@ namespace OneSetSetUpEnvironment
         public static string ConfigFileName = Path.Combine(ConfigPath, "config.conf");  // @"\config.txt";
         public static string ConfigFileSaveName = Path.Combine(ConfigPath, "config_save.conf");// @".\config_save.txt";
         public static string LogFileName = Path.Combine(LogPath, "logs.log");
+        // public static string ErrlogFileName = Path.Combine(LogPath, "errlogs.log");
         public static Dictionary<string, string> ReadConfig()
         {
             string msg = "";
