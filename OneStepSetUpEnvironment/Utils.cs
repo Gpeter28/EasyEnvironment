@@ -14,12 +14,12 @@ namespace OneSetSetUpEnvironment
             {
                 sr.WriteLine(string.Format("[{0} {1}", System.DateTime.Now.ToString(), string.Format(msg, obj)));
             }
+        }
             //using (var fsWrite = new FileStream(Config.LogFileName, FileMode.Create))
             //{
             //    byte[] hByte = System.Text.Encoding.UTF8.GetBytes(msg);
 
             //    fsWrite.Write(hByte, 0, hByte.Length);
             //}
-        }
     }
 }

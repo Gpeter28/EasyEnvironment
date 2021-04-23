@@ -51,6 +51,7 @@
             this.pictureBox_Img.Size = new System.Drawing.Size(40, 40);
             this.pictureBox_Img.TabIndex = 2;
             this.pictureBox_Img.TabStop = false;
+            this.pictureBox_Img.Click += new System.EventHandler(this.PictureBox_Img_Click);
             // 
             // label_Download
             // 
@@ -71,7 +72,7 @@
             this.btn_StartStop.TabIndex = 4;
             this.btn_StartStop.Text = "Start";
             this.btn_StartStop.UseVisualStyleBackColor = true;
-            this.btn_StartStop.Click += new System.EventHandler(this.btn_StartStop_Click);
+            this.btn_StartStop.Click += new System.EventHandler(this.Btn_StartStop_Click);
             // 
             // label_num
             // 

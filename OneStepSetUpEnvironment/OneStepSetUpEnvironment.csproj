@@ -46,7 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Utils\Config.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="CustomerControls\MyCheckBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,7 +79,6 @@
       <DependentUpon>SaveConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Update.cs" />
-    <Compile Include="Utils\Util.cs" />
     <EmbeddedResource Include="CustomerControls\MyCheckBox.resx">
       <DependentUpon>MyCheckBox.cs</DependentUpon>
     </EmbeddedResource>

@@ -68,7 +68,7 @@ namespace OneSetSetUpEnvironment.CustomerControls
             
         }
 
-        private void btn_StartStop_Click(object sender, EventArgs e)
+        private void Btn_StartStop_Click(object sender, EventArgs e)
         {
             Console.WriteLine(MainForm.DirPath);
             var s = $"{MyTask.Name}.exe";
@@ -143,6 +143,25 @@ namespace OneSetSetUpEnvironment.CustomerControls
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+            }
+        }
+
+        private void PictureBox_Img_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(Config.FilePath);
+            using (var dialog = new OpenFileDialog())
+            {
+                dialog.InitialDirectory = Config.IronPath;
+                dialog.Title = "选择图像";
+                dialog.Filter = "图片文件 |*.png;*.jpg;*.bmp";
+
+                if(dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var name = dialog.FileName;
+                    var s = name.Replace(Config.FilePath, "");
+                    this.pictureBox_Img.Image = Image.FromFile($"{Config.FilePath}\\{s}");
+                    // Image.FromFile($"{Config.IronPath}\\{s}.png")
+                }
             }
         }
     }
