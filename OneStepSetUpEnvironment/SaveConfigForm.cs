@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OneSetSetUpEnvironment.CustomerControls;
+using EasyEnvironment.CustomerControls;
 
-namespace OneSetSetUpEnvironment
+namespace EasyEnvironment
 {
     public partial class SaveConfigForm : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace OneSetSetUpEnvironment.CustomerControls
+﻿namespace EasyEnvironment.CustomerControls
 {
     partial class MyCheckBox
     {

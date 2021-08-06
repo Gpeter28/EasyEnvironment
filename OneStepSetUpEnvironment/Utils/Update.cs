@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneSetSetUpEnvironment.Utils
+namespace EasyEnvironment.Utils
 {
    
     class Update

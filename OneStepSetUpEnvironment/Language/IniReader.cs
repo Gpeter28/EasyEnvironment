@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 
 
-namespace OneSetSetUpEnvironment.Language
+namespace EasyEnvironment.Language
 {
     class IniReader
     {

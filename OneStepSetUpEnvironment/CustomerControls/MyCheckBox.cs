@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OneSetSetUpEnvironment.CustomerControls
+namespace EasyEnvironment.CustomerControls
 {
     public partial class MyCheckBox : UserControl
     {

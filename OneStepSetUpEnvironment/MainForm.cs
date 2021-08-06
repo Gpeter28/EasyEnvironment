@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using System.Globalization;
 using System.Net;
 using System.IO;
+using System.Reflection;
+using System.Resources;
+using EasyEnvironment.CustomerControls;
 
-using OneSetSetUpEnvironment.CustomerControls;
-
-namespace OneSetSetUpEnvironment
+namespace EasyEnvironment
 {
     public partial class MainForm : Form
     {
@@ -75,6 +77,11 @@ namespace OneSetSetUpEnvironment
 
         //}
         public static string DirPath = AppDomain.CurrentDomain.BaseDirectory;
+
+        public static ResourceManager rm =
+            new ResourceManager("OneStepSetUpEnvironment", Assembly.GetExecutingAssembly());
+        public static CultureInfo info;
+
 
 
         void UpdateMessage(string msg)
@@ -209,6 +216,16 @@ namespace OneSetSetUpEnvironment
             saveConfigForm.Show(this);
 
             // Config.WriteConfig(list);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            // info = CultureInfo.CreateSpecificCulture("en");
+            
+
+            // newTask_ToolStripMenuItem.Text = lan_cn.NewTask;
+            // newTask_ToolStripMenuItem.Text = rm.GetString("NewTask");
+            // newTask_ToolStripMenuItem.Text = rm.GetString("NewTask", info);
         }
     }
 }

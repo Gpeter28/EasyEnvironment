@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Net;
 using System.IO;
-using OneSetSetUpEnvironment.CustomerControls;
+using EasyEnvironment.CustomerControls;
 
-namespace OneSetSetUpEnvironment.Utils
+namespace EasyEnvironment.Utils
 {
     class Download
     {
@@ -51,7 +51,7 @@ namespace OneSetSetUpEnvironment.Utils
 
             }catch(Exception e)
             {
-                Logger.WriteLog($"{DateTime.Now} : {e.Message}");
+                Logger.WriteLog($"{e.Message}");
                 Console.WriteLine(e.Message);
             }
         }

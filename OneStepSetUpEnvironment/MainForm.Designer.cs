@@ -1,4 +1,4 @@
-﻿namespace OneSetSetUpEnvironment
+﻿namespace EasyEnvironment
 {
     partial class MainForm
     {
@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("VSCode");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("F", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("VSCode");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("F", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.newTask_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.New_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.load_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Save_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.LeftPanel = new System.Windows.Forms.Panel();
-            this.Save_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,12 +46,12 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(0, 38);
             this.treeView1.Name = "treeView1";
-            treeNode3.Name = "节点1";
-            treeNode3.Text = "VSCode";
-            treeNode4.Name = "节点0";
-            treeNode4.Text = "F";
+            treeNode1.Name = "节点1";
+            treeNode1.Text = "VSCode";
+            treeNode2.Name = "节点0";
+            treeNode2.Text = "F";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(126, 575);
             this.treeView1.TabIndex = 0;
             // 
@@ -79,16 +79,23 @@
             // New_MenuItem
             // 
             this.New_MenuItem.Name = "New_MenuItem";
-            this.New_MenuItem.Size = new System.Drawing.Size(180, 32);
+            this.New_MenuItem.Size = new System.Drawing.Size(131, 32);
             this.New_MenuItem.Text = "New";
             this.New_MenuItem.Click += new System.EventHandler(this.New_MenuItem_Click);
             // 
             // load_MenuItem
             // 
             this.load_MenuItem.Name = "load_MenuItem";
-            this.load_MenuItem.Size = new System.Drawing.Size(180, 32);
+            this.load_MenuItem.Size = new System.Drawing.Size(131, 32);
             this.load_MenuItem.Text = "Load";
             this.load_MenuItem.Click += new System.EventHandler(this.Load_MenuItem_Click);
+            // 
+            // Save_MenuItem
+            // 
+            this.Save_MenuItem.Name = "Save_MenuItem";
+            this.Save_MenuItem.Size = new System.Drawing.Size(131, 32);
+            this.Save_MenuItem.Text = "Save";
+            this.Save_MenuItem.Click += new System.EventHandler(this.Save_MenuItem_Click);
             // 
             // MainPanel
             // 
@@ -104,13 +111,6 @@
             this.LeftPanel.Size = new System.Drawing.Size(127, 578);
             this.LeftPanel.TabIndex = 0;
             // 
-            // Save_MenuItem
-            // 
-            this.Save_MenuItem.Name = "Save_MenuItem";
-            this.Save_MenuItem.Size = new System.Drawing.Size(180, 32);
-            this.Save_MenuItem.Text = "Save";
-            this.Save_MenuItem.Click += new System.EventHandler(this.Save_MenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -122,6 +122,7 @@
             this.MainMenuStrip = this.Menu;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.ResumeLayout(false);

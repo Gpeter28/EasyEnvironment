@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
-using OneSetSetUpEnvironment;
+using EasyEnvironment;
 
-namespace OneSetSetUpEnvironment.CustomerControls
+namespace EasyEnvironment.CustomerControls
 {
     public partial class MyList : UserControl
     {
