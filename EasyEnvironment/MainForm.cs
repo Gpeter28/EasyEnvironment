@@ -15,6 +15,7 @@ using System.IO;
 using System.Reflection;
 using System.Resources;
 using EasyEnvironment.CustomerControls;
+using OneSetSetUpEnvironment.Utils;
 
 namespace EasyEnvironment
 {
@@ -221,11 +222,30 @@ namespace EasyEnvironment
         private void MainForm_Load(object sender, EventArgs e)
         {
             // info = CultureInfo.CreateSpecificCulture("en");
-            
+
+#if DEBUG
+            // TestRunExe();
+            TestRunUnZip();
+#endif
+
 
             // newTask_ToolStripMenuItem.Text = lan_cn.NewTask;
             // newTask_ToolStripMenuItem.Text = rm.GetString("NewTask");
             // newTask_ToolStripMenuItem.Text = rm.GetString("NewTask", info);
+        }
+
+        private void TestRunExe()
+        {
+            string path = @"F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\QQ.exe";
+            var flag = AutoInstall.CheckSuffix(path);
+            Console.WriteLine(flag);
+
+            AutoInstall.StartInstall(flag, path);
+        }
+
+        private void TestRunUnZip()
+        {
+            UnZip.ExtractFile(@"F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\VSCode.7z", @"F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\Test");
         }
     }
 }

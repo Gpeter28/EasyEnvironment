@@ -78,8 +78,6 @@ namespace EasyEnvironment.Utils
                 Console.WriteLine($"Failed to set AutoStartUp {e.Message}");
                 throw;
             }
-
-            return false;
         }
     }
 }

@@ -86,6 +86,7 @@
     <Compile Include="SaveConfigForm.Designer.cs">
       <DependentUpon>SaveConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\AutoInstall.cs" />
     <Compile Include="Utils\Update.cs" />
     <EmbeddedResource Include="CustomerControls\MyCheckBox.resx">
       <DependentUpon>MyCheckBox.cs</DependentUpon>
