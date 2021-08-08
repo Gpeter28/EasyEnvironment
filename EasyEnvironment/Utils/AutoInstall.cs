@@ -15,6 +15,32 @@ namespace OneSetSetUpEnvironment.Utils
             return Path.GetExtension(filePath);
         }
 
+        public static void CheckDirCreate(string path)
+        {
+            if (!Directory.Exists(path))
+            {
+                try
+                {
+                    Directory.CreateDirectory(path);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+            }
+        }
+
+        public static void Check7Zip()
+        {
+            CheckDirCreate(Global.AppPath + @"\Data\Import\7zip");
+
+            if (!File.Exists(Global.AppPath + @"\7zip\7za.exe"))
+            {
+                // Install
+            }
+        }
+
         public static void StartInstall(string suffix, string filePath)
         {
             if (suffix.Equals(".exe"))
@@ -56,24 +82,23 @@ namespace OneSetSetUpEnvironment.Utils
 
             //string zPath = ConfigurationManager.AppSettings["FileExtactorEXE"];
             //  string zPath = Properties.Settings.Default.FileExtactorEXE; ;
-
-            string zPath = @"F:\7-Zip\7zG.exe";
+            // F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\Data\Import\7zip
+            string zPath = Global.AppPath + @"\Data\Import\7zip\7za.exe";
 
             try
             {
-                Console.WriteLine("in");
                 ProcessStartInfo pro = new ProcessStartInfo();
                 pro.WindowStyle = ProcessWindowStyle.Normal;
                 pro.FileName = zPath;
-                pro.Arguments = "x \"" + source + "\" -o" + destination;
-                var str = "x \"" + source + "\" -o" + destination;
-                Console.WriteLine(str);
+                pro.Arguments = "x \"" + source + "\" -o\"" + destination + "\"";
+                var str = "x \"" + source + "\" -o\"" + destination + "\"";
                 Process x = Process.Start(pro);
                 x.WaitForExit();
+                Console.WriteLine("成功解压");
             }
-            catch (System.Exception Ex)
+            catch (Exception Ex)
             {
-                Console.WriteLine(Ex.Message);
+                Console.WriteLine(Ex.Message + " 解压失败");
             }
         }
     }
