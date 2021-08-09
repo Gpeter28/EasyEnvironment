@@ -10,10 +10,8 @@ namespace EasyEnvironment
     {
         public static void WriteLog(string msg, params object[] obj)
         {
-            using (var sr = new System.IO.StreamWriter(System.IO.Path.Combine(Config.LogPath, "logs.log"), true))
-            {
-                sr.WriteLine(string.Format("[{0} {1}", System.DateTime.Now.ToString(), string.Format(msg, obj)));
-            }
+            using var sr = new System.IO.StreamWriter(System.IO.Path.Combine(Config.LogPath, "logs.log"), true);
+            sr.WriteLine("[{0} {1}", System.DateTime.Now.ToString(), string.Format(msg, obj));
         }
             //using (var fsWrite = new FileStream(Config.LogFileName, FileMode.Create))
             //{

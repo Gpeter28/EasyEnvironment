@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using EasyEnvironment;
+using OneSetSetUpEnvironment.Utils;
 
 namespace EasyEnvironment.CustomerControls
 {
@@ -72,11 +73,12 @@ namespace EasyEnvironment.CustomerControls
         {
             Console.WriteLine(MainForm.DirPath);
             var s = $"{MyTask.Name}.exe";
+            var filePath = Global.DataPath + s;
             if(txtBox_DownURL.Text != string.Empty)
             {
-                if(!File.Exists(MainForm.DirPath + s))
+                if(!File.Exists(filePath))
                 {
-                    Task.Run(() => this.DownLoadFile(txtBox_DownURL.Text, MainForm.DirPath + s, s));
+                    Task.Run(() => this.DownLoadFile(txtBox_DownURL.Text, filePath, s));
 
                     _ = (btn_StartStop.Text == "Start") ? btn_StartStop.Text = "Stop" : btn_StartStop.Text = "Start";
                 }

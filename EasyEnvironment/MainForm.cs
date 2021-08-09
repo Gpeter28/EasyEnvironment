@@ -225,7 +225,7 @@ namespace EasyEnvironment
 
 #if DEBUG
             // TestRunExe();
-            TestRunUnZip();
+            // TestRunUnZip();
 #endif
 
 
@@ -246,6 +246,11 @@ namespace EasyEnvironment
         private void TestRunUnZip()
         {
             UnZip.ExtractFile(@"F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\VSCode.7z", @"F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\Test");
+        }
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(Global.DataPath);
         }
     }
 }

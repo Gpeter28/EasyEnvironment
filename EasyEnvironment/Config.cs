@@ -15,8 +15,8 @@ namespace EasyEnvironment
         public static string LogPath = Path.Combine(FilePath, "Data", "Log");
 
         // ConfigFileName
-        public static string ConfigFileName = Path.Combine(ConfigPath, "config.cfg");  // @"\config.txt";
-        public static string ConfigFileSaveName = Path.Combine(ConfigPath, "config_save.cfg");// @".\config_save.txt";
+        public static string ConfigFileName = Path.Combine(ConfigPath, "config.txt");  // @"\config.txt";
+        public static string ConfigFileSaveName = Path.Combine(ConfigPath, "config_save.txt");// @".\config_save.txt";
         public static string LogFileName = Path.Combine(LogPath, "logs.log");
         // public static string ErrlogFileName = Path.Combine(LogPath, "errlogs.log");
         public static Dictionary<string, string> ReadConfig()

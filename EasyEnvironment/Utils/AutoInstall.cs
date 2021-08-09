@@ -70,10 +70,6 @@ namespace OneSetSetUpEnvironment.Utils
 
     static class UnZip
     {
-        //string zipfile = @"E:\Folderx\NPPES.zip";
-        //string folder = @"E:\TargetFolderx";
-
-        // ExtractFile(zipfile, folder);
         public static void ExtractFile(string source, string destination)
         {
             // If the directory doesn't exist, create it.
@@ -88,9 +84,9 @@ namespace OneSetSetUpEnvironment.Utils
             try
             {
                 ProcessStartInfo pro = new ProcessStartInfo();
-                pro.WindowStyle = ProcessWindowStyle.Normal;
+                pro.WindowStyle = ProcessWindowStyle.Hidden;
                 pro.FileName = zPath;
-                pro.Arguments = "x \"" + source + "\" -o\"" + destination + "\"";
+                pro.Arguments = "x \"" + source + "\" -o\"" + destination + "\" -y";
                 var str = "x \"" + source + "\" -o\"" + destination + "\"";
                 Process x = Process.Start(pro);
                 x.WaitForExit();
