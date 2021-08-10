@@ -37,11 +37,13 @@
             this.New_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.load_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Save_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MainPanel = new System.Windows.Forms.Panel();
-            this.LeftPanel = new System.Windows.Forms.Panel();
             this.directoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoInstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutoStartMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.LeftPanel = new System.Windows.Forms.Panel();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +64,8 @@
             // 
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newTask_ToolStripMenuItem,
-            this.directoryToolStripMenuItem});
+            this.directoryToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(960, 35);
@@ -83,37 +86,23 @@
             // New_MenuItem
             // 
             this.New_MenuItem.Name = "New_MenuItem";
-            this.New_MenuItem.Size = new System.Drawing.Size(180, 32);
+            this.New_MenuItem.Size = new System.Drawing.Size(131, 32);
             this.New_MenuItem.Text = "New";
             this.New_MenuItem.Click += new System.EventHandler(this.New_MenuItem_Click);
             // 
             // load_MenuItem
             // 
             this.load_MenuItem.Name = "load_MenuItem";
-            this.load_MenuItem.Size = new System.Drawing.Size(180, 32);
+            this.load_MenuItem.Size = new System.Drawing.Size(131, 32);
             this.load_MenuItem.Text = "Load";
             this.load_MenuItem.Click += new System.EventHandler(this.Load_MenuItem_Click);
             // 
             // Save_MenuItem
             // 
             this.Save_MenuItem.Name = "Save_MenuItem";
-            this.Save_MenuItem.Size = new System.Drawing.Size(180, 32);
+            this.Save_MenuItem.Size = new System.Drawing.Size(131, 32);
             this.Save_MenuItem.Text = "Save";
             this.Save_MenuItem.Click += new System.EventHandler(this.Save_MenuItem_Click);
-            // 
-            // MainPanel
-            // 
-            this.MainPanel.Location = new System.Drawing.Point(133, 38);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(827, 578);
-            this.MainPanel.TabIndex = 2;
-            // 
-            // LeftPanel
-            // 
-            this.LeftPanel.Location = new System.Drawing.Point(0, 38);
-            this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(127, 578);
-            this.LeftPanel.TabIndex = 0;
             // 
             // directoryToolStripMenuItem
             // 
@@ -137,6 +126,36 @@
             this.autoInstallToolStripMenuItem.Name = "autoInstallToolStripMenuItem";
             this.autoInstallToolStripMenuItem.Size = new System.Drawing.Size(185, 32);
             this.autoInstallToolStripMenuItem.Text = "AutoInstall";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AutoStartMenuItem});
+            this.settingsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F);
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(100, 31);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // AutoStartMenuItem
+            // 
+            this.AutoStartMenuItem.Name = "AutoStartMenuItem";
+            this.AutoStartMenuItem.Size = new System.Drawing.Size(196, 32);
+            this.AutoStartMenuItem.Text = "AutoStart ×";
+            this.AutoStartMenuItem.Click += new System.EventHandler(this.AutoStartToolStripMenuItem_Click);
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.Location = new System.Drawing.Point(133, 38);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(827, 578);
+            this.MainPanel.TabIndex = 2;
+            // 
+            // LeftPanel
+            // 
+            this.LeftPanel.Location = new System.Drawing.Point(0, 38);
+            this.LeftPanel.Name = "LeftPanel";
+            this.LeftPanel.Size = new System.Drawing.Size(127, 578);
+            this.LeftPanel.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -170,6 +189,8 @@
         private System.Windows.Forms.ToolStripMenuItem directoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoInstallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AutoStartMenuItem;
     }
 }
 
