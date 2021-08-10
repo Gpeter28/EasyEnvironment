@@ -15,6 +15,7 @@ using System.IO;
 using System.Reflection;
 using System.Resources;
 using EasyEnvironment.CustomerControls;
+using EasyEnvironment.Utils;
 using OneSetSetUpEnvironment.Utils;
 
 namespace EasyEnvironment
@@ -251,6 +252,25 @@ namespace EasyEnvironment
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start(Global.DataPath);
+        }
+
+
+        private void AutoStartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var autoStartFlag = AutoStart.Check();
+
+            if (autoStartFlag)
+            {
+                this.AutoStartMenuItem.Text = "AutoStart ×";
+                AutoStart.Remove();
+                MessageBox.Show("Success Remove AutoStart");
+            }
+            else
+            {
+                AutoStart.Set();
+                MessageBox.Show("Success Set AutoStart");
+                this.AutoStartMenuItem.Text = "AutoStart √";
+            }
         }
     }
 }
