@@ -225,6 +225,7 @@ namespace EasyEnvironment
             // info = CultureInfo.CreateSpecificCulture("en");
 
 #if DEBUG
+            TestEnvironmentVariables();
             // TestRunExe();
             // TestRunUnZip();
 #endif
@@ -233,6 +234,11 @@ namespace EasyEnvironment
             // newTask_ToolStripMenuItem.Text = lan_cn.NewTask;
             // newTask_ToolStripMenuItem.Text = rm.GetString("NewTask");
             // newTask_ToolStripMenuItem.Text = rm.GetString("NewTask", info);
+        }
+
+        private void TestEnvironmentVariables()
+        {
+            EnvironmentVariables.GetEnvironmentVariables();
         }
 
         private void TestRunExe()

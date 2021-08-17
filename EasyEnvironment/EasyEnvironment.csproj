@@ -88,6 +88,7 @@
     </Compile>
     <Compile Include="Utils\AutoInstall.cs" />
     <Compile Include="Utils\Global.cs" />
+    <Compile Include="Utils\EnvironmentVariables.cs" />
     <Compile Include="Utils\Update.cs" />
     <EmbeddedResource Include="CustomerControls\MyCheckBox.resx">
       <DependentUpon>MyCheckBox.cs</DependentUpon>

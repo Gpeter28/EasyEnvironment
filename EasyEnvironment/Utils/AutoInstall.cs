@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneSetSetUpEnvironment.Utils
+namespace EasyEnvironment.Utils
 {
     static class AutoInstall
     {
