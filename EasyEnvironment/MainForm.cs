@@ -16,7 +16,6 @@ using System.Reflection;
 using System.Resources;
 using EasyEnvironment.CustomerControls;
 using EasyEnvironment.Utils;
-using OneSetSetUpEnvironment.Utils;
 
 namespace EasyEnvironment
 {
@@ -238,7 +237,10 @@ namespace EasyEnvironment
 
         private void TestEnvironmentVariables()
         {
-            EnvironmentVariables.GetEnvironmentVariables();
+            // EnvironmentVariables.GetEnvironmentVariables();
+
+            var str = @"D:\git\bin\test";
+            EnvironmentVariables.AddEnvironmentVariables(str);
         }
 
         private void TestRunExe()

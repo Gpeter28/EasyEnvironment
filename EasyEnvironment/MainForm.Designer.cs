@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("VSCode");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("F", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("VSCode");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("F", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.newTask_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +44,7 @@
             this.AutoStartMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.environmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,12 +52,12 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(0, 38);
             this.treeView1.Name = "treeView1";
-            treeNode5.Name = "节点1";
-            treeNode5.Text = "VSCode";
-            treeNode6.Name = "节点0";
-            treeNode6.Text = "F";
+            treeNode3.Name = "节点1";
+            treeNode3.Text = "VSCode";
+            treeNode4.Name = "节点0";
+            treeNode4.Text = "F";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
+            treeNode4});
             this.treeView1.Size = new System.Drawing.Size(126, 575);
             this.treeView1.TabIndex = 0;
             // 
@@ -108,7 +109,8 @@
             // 
             this.directoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.autoInstallToolStripMenuItem});
+            this.autoInstallToolStripMenuItem,
+            this.environmentToolStripMenuItem});
             this.directoryToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F);
             this.directoryToolStripMenuItem.Name = "directoryToolStripMenuItem";
             this.directoryToolStripMenuItem.Size = new System.Drawing.Size(112, 31);
@@ -157,6 +159,12 @@
             this.LeftPanel.Size = new System.Drawing.Size(127, 578);
             this.LeftPanel.TabIndex = 0;
             // 
+            // environmentToolStripMenuItem
+            // 
+            this.environmentToolStripMenuItem.Name = "environmentToolStripMenuItem";
+            this.environmentToolStripMenuItem.Size = new System.Drawing.Size(205, 32);
+            this.environmentToolStripMenuItem.Text = "Environment";
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -191,6 +199,7 @@
         private System.Windows.Forms.ToolStripMenuItem autoInstallToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AutoStartMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem environmentToolStripMenuItem;
     }
 }
 

@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeEnvironmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeEnvironmentForm.Designer.cs">
+      <DependentUpon>ChangeEnvironmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +96,9 @@
     <Compile Include="Utils\Global.cs" />
     <Compile Include="Utils\EnvironmentVariables.cs" />
     <Compile Include="Utils\Update.cs" />
+    <EmbeddedResource Include="ChangeEnvironmentForm.resx">
+      <DependentUpon>ChangeEnvironmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerControls\MyCheckBox.resx">
       <DependentUpon>MyCheckBox.cs</DependentUpon>
     </EmbeddedResource>
