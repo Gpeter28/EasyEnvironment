@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OneSetSetUpEnvironment.Utils
+namespace EasyEnvironment.Utils
 {
     class Global
     {

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using EasyEnvironment;
-using OneSetSetUpEnvironment.Utils;
+using EasyEnvironment.Utils;
 
 namespace EasyEnvironment.CustomerControls
 {
