@@ -17,7 +17,7 @@ namespace EasyEnvironment
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChangeEnvironmentForm());
+            Application.Run(new MainForm());
         }
     }
 }

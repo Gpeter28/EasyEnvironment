@@ -29,12 +29,17 @@ namespace EasyEnvironment
 
         private void ChangeEnvironmentForm_Load(object sender, EventArgs e)
         {
-            var str = Environment.GetEnvironmentVariable("test", EnvironmentVariableTarget.User).Split(';');
+            var flag = Environment.GetEnvironmentVariable("test");
 
-            foreach (var i in str)
+            if (flag != null) 
             {
-                envirList.Add(i);
-                EnvironmentListView.Items.Add(i);
+                var str = Environment.GetEnvironmentVariable("test", EnvironmentVariableTarget.User).Split(';');
+
+                foreach (var i in str)
+                {
+                    envirList.Add(i);
+                    EnvironmentListView.Items.Add(i);
+                }
             }
         }
 

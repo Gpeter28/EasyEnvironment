@@ -55,29 +55,37 @@ namespace EasyEnvironment
                 File.Create(ConfigFileName);
             }
 
+            // https://stackoverflow.com/questions/4963667/filestream-vs-differences-streamwriter
+            using var sr = new StreamWriter(ConfigFileSaveName, true);
+            sr.WriteLine(config);
 
-            using (FileStream fsWrite = new FileStream(ConfigFileSaveName, FileMode.Create))
-            {
-                byte[] hByte = System.Text.Encoding.UTF8.GetBytes(config);
 
-                fsWrite.Write(hByte, 0, hByte.Length);
-            }
+            //using (FileStream fsWrite = new FileStream(ConfigFileSaveName, FileMode.Create))
+            //{
+            //byte[] hByte = System.Text.Encoding.UTF8.GetBytes(config);
+            // 
+            // //fsWrite.Write(hByte, 0, hByte.Length);
+            //}
+
+
         }
 
         public static void WriteConfig(Dictionary<string, string> list)
         {
-            if (!File.Exists(ConfigFileName))
-            {
-                File.Create(ConfigFileName);
-            }
+ 
             var str = DictionaryToString(list);
 
-            using (FileStream fsWrite = new FileStream(ConfigFileSaveName, FileMode.Create))
-            {
-                byte[] hByte = System.Text.Encoding.UTF8.GetBytes(str);
+            // using var sr = new StreamWriter(ConfigFileSaveName, true);
+            using var sr = new StreamWriter(ConfigFileSaveName, false);
+            sr.WriteLine(str);
 
-                fsWrite.Write(hByte, 0, hByte.Length);
-            }
+
+            //using (FileStream fsWrite = new FileStream(ConfigFileSaveName, FileMode.Create))
+            //{
+            //    byte[] hByte = System.Text.Encoding.UTF8.GetBytes(str);
+
+            //    fsWrite.Write(hByte, 0, hByte.Length);
+            //}
         }
 
         private static string DictionaryToString(Dictionary<string, string> list)
