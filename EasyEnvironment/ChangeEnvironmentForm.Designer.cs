@@ -32,9 +32,9 @@ namespace EasyEnvironment
             this.UserLabel = new System.Windows.Forms.Label();
             this.EnvironmentListView = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btn_Edit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.BtnNew = new System.Windows.Forms.Button();
+            this.BtnEdit = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.txtValue = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -64,33 +64,33 @@ namespace EasyEnvironment
             this.columnHeader2.Text = "值";
             this.columnHeader2.Width = 417;
             // 
-            // btnNew
+            // BtnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(295, 415);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNew.TabIndex = 2;
-            this.btnNew.Text = "新建";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            this.BtnNew.Location = new System.Drawing.Point(295, 415);
+            this.BtnNew.Name = "BtnNew";
+            this.BtnNew.Size = new System.Drawing.Size(75, 23);
+            this.BtnNew.TabIndex = 2;
+            this.BtnNew.Text = "新建";
+            this.BtnNew.UseVisualStyleBackColor = true;
+            this.BtnNew.Click += new System.EventHandler(this.BtnNew_Click);
             // 
-            // btn_Edit
+            // BtnEdit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(376, 415);
-            this.btn_Edit.Name = "btn_Edit";
-            this.btn_Edit.Size = new System.Drawing.Size(75, 23);
-            this.btn_Edit.TabIndex = 3;
-            this.btn_Edit.Text = "编辑";
-            this.btn_Edit.UseVisualStyleBackColor = true;
+            this.BtnEdit.Location = new System.Drawing.Point(376, 415);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(75, 23);
+            this.BtnEdit.TabIndex = 3;
+            this.BtnEdit.Text = "编辑";
+            this.BtnEdit.UseVisualStyleBackColor = true;
             // 
-            // btnDelete
+            // BtnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(457, 415);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "删除";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Location = new System.Drawing.Point(457, 415);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelete.TabIndex = 4;
+            this.BtnDelete.Text = "删除";
+            this.BtnDelete.UseVisualStyleBackColor = true;
             // 
             // txtValue
             // 
@@ -105,9 +105,9 @@ namespace EasyEnvironment
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(558, 450);
             this.Controls.Add(this.txtValue);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btn_Edit);
-            this.Controls.Add(this.btnNew);
+            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.BtnEdit);
+            this.Controls.Add(this.BtnNew);
             this.Controls.Add(this.EnvironmentListView);
             this.Controls.Add(this.UserLabel);
             this.Name = "ChangeEnvironmentForm";
@@ -124,9 +124,9 @@ namespace EasyEnvironment
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.ListView EnvironmentListView;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.Button btn_Edit;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button BtnNew;
+        private System.Windows.Forms.Button BtnEdit;
+        private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.TextBox txtValue;
     }
 }

@@ -43,10 +43,20 @@ namespace EasyEnvironment
             }
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
+        private void BtnNew_Click(object sender, EventArgs e)
         {
-            EnvironmentListView.Items.Add(txtValue.Text);
-            envirList.Add(txtValue.Text);
+            var dialog = new FolderBrowserDialog();
+
+            string pathName = string.Empty;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                pathName = dialog.SelectedPath;
+            }
+
+            // Console.WriteLine(pathName);
+
+            EnvironmentListView.Items.Add(pathName);
+            envirList.Add(pathName);
             txtValue.Clear();
             txtValue.Focus();
         }
