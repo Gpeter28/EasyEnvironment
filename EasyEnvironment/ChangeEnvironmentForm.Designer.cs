@@ -35,13 +35,16 @@ namespace EasyEnvironment
             this.BtnNew = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.txtValue = new System.Windows.Forms.TextBox();
+            this.TxtValue = new System.Windows.Forms.TextBox();
+            this.BtnView = new System.Windows.Forms.Button();
+            this.BtnRollBack = new System.Windows.Forms.Button();
+            this.BtnConfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UserLabel
             // 
             this.UserLabel.AutoSize = true;
-            this.UserLabel.Location = new System.Drawing.Point(38, 59);
+            this.UserLabel.Location = new System.Drawing.Point(38, 64);
             this.UserLabel.Name = "UserLabel";
             this.UserLabel.Size = new System.Drawing.Size(53, 12);
             this.UserLabel.TabIndex = 0;
@@ -49,6 +52,7 @@ namespace EasyEnvironment
             // 
             // EnvironmentListView
             // 
+            this.EnvironmentListView.Alignment = System.Windows.Forms.ListViewAlignment.Default;
             this.EnvironmentListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2});
             this.EnvironmentListView.HideSelection = false;
@@ -82,6 +86,7 @@ namespace EasyEnvironment
             this.BtnEdit.TabIndex = 3;
             this.BtnEdit.Text = "编辑";
             this.BtnEdit.UseVisualStyleBackColor = true;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // BtnDelete
             // 
@@ -91,20 +96,52 @@ namespace EasyEnvironment
             this.BtnDelete.TabIndex = 4;
             this.BtnDelete.Text = "删除";
             this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // txtValue
+            // TxtValue
             // 
-            this.txtValue.Location = new System.Drawing.Point(295, 59);
-            this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(100, 21);
-            this.txtValue.TabIndex = 5;
+            this.TxtValue.Location = new System.Drawing.Point(97, 59);
+            this.TxtValue.Name = "TxtValue";
+            this.TxtValue.Size = new System.Drawing.Size(273, 21);
+            this.TxtValue.TabIndex = 5;
+            // 
+            // BtnView
+            // 
+            this.BtnView.Location = new System.Drawing.Point(444, 59);
+            this.BtnView.Name = "BtnView";
+            this.BtnView.Size = new System.Drawing.Size(75, 23);
+            this.BtnView.TabIndex = 6;
+            this.BtnView.Text = "浏览";
+            this.BtnView.UseVisualStyleBackColor = true;
+            this.BtnView.Click += new System.EventHandler(this.BtnView_Click);
+            // 
+            // BtnRollBack
+            // 
+            this.BtnRollBack.Location = new System.Drawing.Point(421, 59);
+            this.BtnRollBack.Name = "BtnRollBack";
+            this.BtnRollBack.Size = new System.Drawing.Size(17, 23);
+            this.BtnRollBack.TabIndex = 7;
+            this.BtnRollBack.Text = "R";
+            this.BtnRollBack.UseVisualStyleBackColor = true;
+            // 
+            // BtnConfirm
+            // 
+            this.BtnConfirm.Location = new System.Drawing.Point(376, 59);
+            this.BtnConfirm.Name = "BtnConfirm";
+            this.BtnConfirm.Size = new System.Drawing.Size(39, 23);
+            this.BtnConfirm.TabIndex = 8;
+            this.BtnConfirm.Text = "确认";
+            this.BtnConfirm.UseVisualStyleBackColor = true;
             // 
             // ChangeEnvironmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(558, 450);
-            this.Controls.Add(this.txtValue);
+            this.Controls.Add(this.BtnConfirm);
+            this.Controls.Add(this.BtnRollBack);
+            this.Controls.Add(this.BtnView);
+            this.Controls.Add(this.TxtValue);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnEdit);
             this.Controls.Add(this.BtnNew);
@@ -127,6 +164,9 @@ namespace EasyEnvironment
         private System.Windows.Forms.Button BtnNew;
         private System.Windows.Forms.Button BtnEdit;
         private System.Windows.Forms.Button BtnDelete;
-        private System.Windows.Forms.TextBox txtValue;
+        private System.Windows.Forms.TextBox TxtValue;
+        private System.Windows.Forms.Button BtnView;
+        private System.Windows.Forms.Button BtnRollBack;
+        private System.Windows.Forms.Button BtnConfirm;
     }
 }
