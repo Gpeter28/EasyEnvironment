@@ -34,6 +34,7 @@
             this.btn_StartStop = new System.Windows.Forms.Button();
             this.label_num = new System.Windows.Forms.Label();
             this.txtBox_DownURL = new System.Windows.Forms.TextBox();
+            this.CheckBox_Select = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Img)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             // 
             // pictureBox_Img
             // 
-            this.pictureBox_Img.Location = new System.Drawing.Point(65, 3);
+            this.pictureBox_Img.Location = new System.Drawing.Point(96, 3);
             this.pictureBox_Img.Name = "pictureBox_Img";
             this.pictureBox_Img.Size = new System.Drawing.Size(40, 40);
             this.pictureBox_Img.TabIndex = 2;
@@ -78,7 +79,7 @@
             // 
             this.label_num.AutoSize = true;
             this.label_num.Font = new System.Drawing.Font("宋体", 12F);
-            this.label_num.Location = new System.Drawing.Point(3, 19);
+            this.label_num.Location = new System.Drawing.Point(34, 19);
             this.label_num.Name = "label_num";
             this.label_num.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label_num.Size = new System.Drawing.Size(56, 16);
@@ -88,15 +89,25 @@
             // txtBox_DownURL
             // 
             this.txtBox_DownURL.Font = new System.Drawing.Font("宋体", 15F);
-            this.txtBox_DownURL.Location = new System.Drawing.Point(109, 8);
+            this.txtBox_DownURL.Location = new System.Drawing.Point(142, 8);
             this.txtBox_DownURL.Name = "txtBox_DownURL";
-            this.txtBox_DownURL.Size = new System.Drawing.Size(322, 30);
+            this.txtBox_DownURL.Size = new System.Drawing.Size(289, 30);
             this.txtBox_DownURL.TabIndex = 6;
+            // 
+            // CheckBox_Select
+            // 
+            this.CheckBox_Select.AutoSize = true;
+            this.CheckBox_Select.Location = new System.Drawing.Point(12, 20);
+            this.CheckBox_Select.Name = "CheckBox_Select";
+            this.CheckBox_Select.Size = new System.Drawing.Size(15, 14);
+            this.CheckBox_Select.TabIndex = 7;
+            this.CheckBox_Select.UseVisualStyleBackColor = true;
             // 
             // MyList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.CheckBox_Select);
             this.Controls.Add(this.txtBox_DownURL);
             this.Controls.Add(this.label_num);
             this.Controls.Add(this.btn_StartStop);
@@ -120,5 +131,6 @@
         private System.Windows.Forms.Button btn_StartStop;
         private System.Windows.Forms.Label label_num;
         private System.Windows.Forms.TextBox txtBox_DownURL;
+        public System.Windows.Forms.CheckBox CheckBox_Select;
     }
 }

@@ -27,6 +27,7 @@ namespace EasyEnvironment
         }
         RichTextBox ownUrl = new RichTextBox();
         Dictionary<string,string> list = new Dictionary<string, string>();
+        private List<MyList> myLists = new List<MyList>(5);
 
         //public void MainFormDownLoad(string url, string path, string name)
         //{
@@ -80,7 +81,7 @@ namespace EasyEnvironment
         public static string DirPath = AppDomain.CurrentDomain.BaseDirectory;
 
         public static ResourceManager rm =
-            new ResourceManager("OneStepSetUpEnvironment", Assembly.GetExecutingAssembly());
+            new ResourceManager("EasyEnvironment", Assembly.GetExecutingAssembly());
         public static CultureInfo info;
 
 
@@ -166,6 +167,7 @@ namespace EasyEnvironment
                 NumOfList = num.ToString()
             };
             MainPanel.Controls.Add(myList);
+            myLists.Add(myList);
         }
 
         public void UpdateList(Dictionary<string, string> list)
@@ -278,6 +280,27 @@ namespace EasyEnvironment
                 AutoStart.Set();
                 MessageBox.Show("Success Set AutoStart");
                 this.AutoStartMenuItem.Text = "AutoStart √";
+            }
+        }
+
+        private void EnvironmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeEnvironmentForm changeEnvironmentForm = new ChangeEnvironmentForm();
+
+            changeEnvironmentForm.ShowDialog();
+        }
+
+        private void CheckBox_SelectAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (myLists.Count == 0)
+            {
+                return;
+            }
+            var flag = CheckBox_SelectAll.Checked;
+
+            foreach (var m in myLists)
+            {
+                m.CheckBox_Select.Checked = flag;
             }
         }
     }

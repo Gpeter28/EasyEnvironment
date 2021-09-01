@@ -25,21 +25,27 @@ namespace EasyEnvironment.CustomerControls
 
         public string NumOfList
         {
-            get { return label_num.Text; }
-            set { label_num.Text = value; }
+            get => label_num.Text; 
+            set => label_num.Text = value;
         }
 
         public int ProcessValue
         {
-            get { return processBar_Download.Value; }
-            set { processBar_Download.Value = value; }
+            get => processBar_Download.Value;
+            set => processBar_Download.Value = value;
         }
 
         public string URL
         {
-            get { return txtBox_DownURL.Text; }
-            set { txtBox_DownURL.Text = value; }
+            get => txtBox_DownURL.Text;
+            set => txtBox_DownURL.Text = value;
         }
+
+        //public bool IsSelected
+        //{
+        //    get => CheckBox_Select.Checked; 
+        //    set => CheckBox_Select.Checked = !CheckBox_Select.Checked;
+        //}
 
         public NewTask MyTask { get; set; }
 
@@ -52,8 +58,8 @@ namespace EasyEnvironment.CustomerControls
 
         public double ProcessValuePercentage
         {
-            get { return ConvertStringToDouble(label_Download.Text); }
-            set { label_Download.Text = value.ToString(); }
+            get => ConvertStringToDouble(label_Download.Text);
+            set => label_Download.Text = value.ToString();
         }
 
 
@@ -92,6 +98,7 @@ namespace EasyEnvironment.CustomerControls
 
             }         
         }
+
 
         public void DownLoadFile(string url, string path, string name)
         {
@@ -151,20 +158,19 @@ namespace EasyEnvironment.CustomerControls
         private void PictureBox_Img_Click(object sender, EventArgs e)
         {
             Console.WriteLine(Config.FilePath);
-            using (var dialog = new OpenFileDialog())
-            {
-                dialog.InitialDirectory = Config.IronPath;
-                dialog.Title = "选择图像";
-                dialog.Filter = "图片文件 |*.png;*.jpg;*.bmp";
+            using var dialog = new OpenFileDialog();
+            dialog.InitialDirectory = Config.IronPath;
+            dialog.Title = "选择图像";
+            dialog.Filter = "图片文件 |*.png;*.jpg;*.bmp";
 
-                if(dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var name = dialog.FileName;
-                    var s = name.Replace(Config.FilePath, "");
-                    this.pictureBox_Img.Image = Image.FromFile($"{Config.FilePath}\\{s}");
-                    // Image.FromFile($"{Config.IronPath}\\{s}.png")
-                }
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                var name = dialog.FileName;
+                var s = name.Replace(Config.FilePath, "");
+                this.pictureBox_Img.Image = Image.FromFile($"{Config.FilePath}\\{s}");
+                // Image.FromFile($"{Config.IronPath}\\{s}.png")
             }
         }
+
     }
 }
