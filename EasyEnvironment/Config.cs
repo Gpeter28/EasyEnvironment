@@ -13,11 +13,14 @@ namespace EasyEnvironment
         public static string IronPath = Path.Combine(FilePath, "Data", "Iron");// $"{FilePath}\\Data\\Iron";
         public static string ConfigPath = Path.Combine(FilePath, "Data", "Config");// $"{FilePath}\\Data\\Config";
         public static string LogPath = Path.Combine(FilePath, "Data", "Log");
+        public static string PersonalEnvironmentDataPath = Path.Combine(FilePath, "Data", "Environment");
 
         // ConfigFileName
         public static string ConfigFileName = Path.Combine(ConfigPath, "config.txt");  // @"\config.txt";
         public static string ConfigFileSaveName = Path.Combine(ConfigPath, "config_save.txt");// @".\config_save.txt";
         public static string LogFileName = Path.Combine(LogPath, "logs.log");
+
+        public static string EnvironmentNmae = Path.Combine(PersonalEnvironmentDataPath, "environment.txt");
         // public static string ErrlogFileName = Path.Combine(LogPath, "errlogs.log");
         public static Dictionary<string, string> ReadConfig()
         {
