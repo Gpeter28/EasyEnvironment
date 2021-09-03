@@ -4,26 +4,39 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EasyEnvironment.Utils;
 
 namespace EasyEnvironment
 {
+    class Logger
+    {
+        public static void WriteLog(string msg, params object[] obj)
+        {
+            using var sr = new StreamWriter(Config.LogFileName, true);
+            sr.WriteLine("[{0} {1}", System.DateTime.Now, string.Format(msg, obj));
+        }
+    }
+
     class Config
     {
-        public static string FilePath = AppDomain.CurrentDomain.BaseDirectory;
-        public static string IronPath = Path.Combine(FilePath, "Data", "Iron");// $"{FilePath}\\Data\\Iron";
-        public static string ConfigPath = Path.Combine(FilePath, "Data", "Config");// $"{FilePath}\\Data\\Config";
-        public static string LogPath = Path.Combine(FilePath, "Data", "Log");
-        public static string PersonalEnvironmentDataPath = Path.Combine(FilePath, "Data", "Environment");
+        //public static string IronPath = Path.Combine(Global.DataPath, "Iron");
+        //public static string ConfigPath = Path.Combine(Global.DataPath, "Config");
+        //public static string LogPath = Path.Combine(Global.DataPath, "Log");
+        //public static string PersonalEnvironmentDataPath = Path.Combine(Global.DataPath, "Environment");
 
         // ConfigFileName
-        public static string ConfigFileName = Path.Combine(ConfigPath, "config.txt");  // @"\config.txt";
-        public static string ConfigFileSaveName = Path.Combine(ConfigPath, "config_save.txt");// @".\config_save.txt";
-        public static string LogFileName = Path.Combine(LogPath, "logs.log");
+        public static string ConfigFileName = Path.Combine(Global.DataPath, "Config", "config.txt");
+        public static string ConfigFileSaveName = Path.Combine(Global.DataPath, "Config", "config_save.txt");
+        public static string LogFileName = Path.Combine(Global.DataPath, "Log", "logs.log");
+        public static string EnvironmentName = Path.Combine(Global.DataPath, "Environment", "environment.txt");
 
-        public static string EnvironmentNmae = Path.Combine(PersonalEnvironmentDataPath, "environment.txt");
-        // public static string ErrlogFileName = Path.Combine(LogPath, "errlogs.log");
         public static Dictionary<string, string> ReadConfig()
         {
+            if (!File.Exists(ConfigFileName))
+            {
+                File.Create(ConfigFileName);
+            }
+
             string msg = "";
             using (FileStream fsRead = new FileStream(ConfigFileName, FileMode.Open))
             {
@@ -78,17 +91,8 @@ namespace EasyEnvironment
  
             var str = DictionaryToString(list);
 
-            // using var sr = new StreamWriter(ConfigFileSaveName, true);
             using var sr = new StreamWriter(ConfigFileSaveName, false);
             sr.WriteLine(str);
-
-
-            //using (FileStream fsWrite = new FileStream(ConfigFileSaveName, FileMode.Create))
-            //{
-            //    byte[] hByte = System.Text.Encoding.UTF8.GetBytes(str);
-
-            //    fsWrite.Write(hByte, 0, hByte.Length);
-            //}
         }
 
         private static string DictionaryToString(Dictionary<string, string> list)

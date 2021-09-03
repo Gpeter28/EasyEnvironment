@@ -157,7 +157,7 @@ namespace EasyEnvironment.CustomerControls
 
         private void PictureBox_Img_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(Config.FilePath);
+            Console.WriteLine(Config.IronPath);
             using var dialog = new OpenFileDialog();
             dialog.InitialDirectory = Config.IronPath;
             dialog.Title = "选择图像";
@@ -166,8 +166,8 @@ namespace EasyEnvironment.CustomerControls
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 var name = dialog.FileName;
-                var s = name.Replace(Config.FilePath, "");
-                this.pictureBox_Img.Image = Image.FromFile($"{Config.FilePath}\\{s}");
+                var s = name.Replace(Config.IronPath, "");
+                this.pictureBox_Img.Image = Image.FromFile($"{Config.IronPath}\\{s}");
                 // Image.FromFile($"{Config.IronPath}\\{s}.png")
             }
         }
