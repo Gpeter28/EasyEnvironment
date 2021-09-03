@@ -38,7 +38,7 @@ namespace EasyEnvironment
             Directory.CreateDirectory(Global.DataPath);
 
             // child
-            foreach (var dir in new string[] { "Config", "Download", "Environment", "Import", "Iron", "Log" })
+            foreach (var dir in new string[] { "Config", "Download", "Environment", "Import", "Icon", "Log" })
             {
                 Directory.CreateDirectory(Path.Combine(Global.DataPath, dir));
             }

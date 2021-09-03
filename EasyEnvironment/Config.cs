@@ -19,16 +19,12 @@ namespace EasyEnvironment
 
     class Config
     {
-        //public static string IronPath = Path.Combine(Global.DataPath, "Iron");
-        //public static string ConfigPath = Path.Combine(Global.DataPath, "Config");
-        //public static string LogPath = Path.Combine(Global.DataPath, "Log");
-        //public static string PersonalEnvironmentDataPath = Path.Combine(Global.DataPath, "Environment");
-
-        // ConfigFileName
         public static string ConfigFileName = Path.Combine(Global.DataPath, "Config", "config.txt");
         public static string ConfigFileSaveName = Path.Combine(Global.DataPath, "Config", "config_save.txt");
         public static string LogFileName = Path.Combine(Global.DataPath, "Log", "logs.log");
-        public static string EnvironmentName = Path.Combine(Global.DataPath, "Environment", "environment.txt");
+        public static string EnvironmentFileName = Path.Combine(Global.DataPath, "Environment", "environment.txt");
+        public static string DownloadFileName = Path.Combine(Global.DataPath, "Download");
+        public static string IconPath = Path.Combine(Global.DataPath, "Icon");
 
         public static Dictionary<string, string> ReadConfig()
         {
@@ -54,6 +50,11 @@ namespace EasyEnvironment
             foreach (var i in mm)
             {
                 if (i.StartsWith(@"//"))
+                {
+                    continue;
+                }
+
+                if (i.StartsWith("--"))
                 {
                     continue;
                 }
