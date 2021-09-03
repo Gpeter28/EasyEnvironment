@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("VSCode");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("F", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("VSCode");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("F", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.newTask_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +39,7 @@
             this.Save_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autoInstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_AutoInstall = new System.Windows.Forms.ToolStripMenuItem();
             this.EnvironmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AutoStartMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,12 +56,12 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(0, 38);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "节点1";
-            treeNode1.Text = "VSCode";
-            treeNode2.Name = "节点0";
-            treeNode2.Text = "F";
+            treeNode3.Name = "节点1";
+            treeNode3.Text = "VSCode";
+            treeNode4.Name = "节点0";
+            treeNode4.Text = "F";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode4});
             this.treeView1.Size = new System.Drawing.Size(126, 575);
             this.treeView1.TabIndex = 0;
             // 
@@ -91,21 +91,21 @@
             // New_MenuItem
             // 
             this.New_MenuItem.Name = "New_MenuItem";
-            this.New_MenuItem.Size = new System.Drawing.Size(131, 32);
+            this.New_MenuItem.Size = new System.Drawing.Size(180, 32);
             this.New_MenuItem.Text = "New";
             this.New_MenuItem.Click += new System.EventHandler(this.New_MenuItem_Click);
             // 
             // load_MenuItem
             // 
             this.load_MenuItem.Name = "load_MenuItem";
-            this.load_MenuItem.Size = new System.Drawing.Size(131, 32);
+            this.load_MenuItem.Size = new System.Drawing.Size(180, 32);
             this.load_MenuItem.Text = "Load";
             this.load_MenuItem.Click += new System.EventHandler(this.Load_MenuItem_Click);
             // 
             // Save_MenuItem
             // 
             this.Save_MenuItem.Name = "Save_MenuItem";
-            this.Save_MenuItem.Size = new System.Drawing.Size(131, 32);
+            this.Save_MenuItem.Size = new System.Drawing.Size(180, 32);
             this.Save_MenuItem.Text = "Save";
             this.Save_MenuItem.Click += new System.EventHandler(this.Save_MenuItem_Click);
             // 
@@ -113,7 +113,7 @@
             // 
             this.directoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.autoInstallToolStripMenuItem,
+            this.MenuItem_AutoInstall,
             this.EnvironmentToolStripMenuItem});
             this.directoryToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F);
             this.directoryToolStripMenuItem.Name = "directoryToolStripMenuItem";
@@ -127,11 +127,12 @@
             this.openToolStripMenuItem.Text = "OpenFile";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
-            // autoInstallToolStripMenuItem
+            // MenuItem_AutoInstall
             // 
-            this.autoInstallToolStripMenuItem.Name = "autoInstallToolStripMenuItem";
-            this.autoInstallToolStripMenuItem.Size = new System.Drawing.Size(205, 32);
-            this.autoInstallToolStripMenuItem.Text = "AutoInstall";
+            this.MenuItem_AutoInstall.Name = "MenuItem_AutoInstall";
+            this.MenuItem_AutoInstall.Size = new System.Drawing.Size(205, 32);
+            this.MenuItem_AutoInstall.Text = "AutoInstall";
+            this.MenuItem_AutoInstall.Click += new System.EventHandler(this.MenuItem_AutoInstall_Click);
             // 
             // EnvironmentToolStripMenuItem
             // 
@@ -247,7 +248,7 @@
         private System.Windows.Forms.ToolStripMenuItem Save_MenuItem;
         private System.Windows.Forms.ToolStripMenuItem directoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem autoInstallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_AutoInstall;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AutoStartMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EnvironmentToolStripMenuItem;

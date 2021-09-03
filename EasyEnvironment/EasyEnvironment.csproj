@@ -54,6 +54,12 @@
     <Compile Include="ChangeEnvironmentForm.Designer.cs">
       <DependentUpon>ChangeEnvironmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerControls\ExtractList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerControls\ExtractList.Designer.cs">
+      <DependentUpon>ExtractList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +103,9 @@
     <Compile Include="Utils\Update.cs" />
     <EmbeddedResource Include="ChangeEnvironmentForm.resx">
       <DependentUpon>ChangeEnvironmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerControls\ExtractList.resx">
+      <DependentUpon>ExtractList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerControls\MyCheckBox.resx">
       <DependentUpon>MyCheckBox.cs</DependentUpon>

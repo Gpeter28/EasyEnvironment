@@ -16,6 +16,7 @@ using System.Reflection;
 using System.Resources;
 using EasyEnvironment.CustomerControls;
 using EasyEnvironment.Utils;
+using OneSetSetUpEnvironment.CustomerControls;
 
 namespace EasyEnvironment
 {
@@ -27,7 +28,10 @@ namespace EasyEnvironment
         }
         RichTextBox ownUrl = new RichTextBox();
         Dictionary<string,string> list = new Dictionary<string, string>();
+
+        // In Future Use More Nomal Way to do it ?
         private List<MyList> myLists = new List<MyList>(5);
+        private List<ExtractList> extractLists = new List<ExtractList>(5);
 
         //public void MainFormDownLoad(string url, string path, string name)
         //{
@@ -72,11 +76,6 @@ namespace EasyEnvironment
         //    {
         //        Console.WriteLine("error");
         //    }
-        //}
-
-        //public void UpdateProcessBar(long num)
-        //{
-
         //}
         public static string DirPath = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -170,21 +169,9 @@ namespace EasyEnvironment
             myLists.Add(myList);
         }
 
-        public void UpdateList(Dictionary<string, string> list)
-        {
-            this.list = list;
-            ClearMainPanel();
-            CreateNewTask(list);
-        }
-
-        private void ClearMainPanel()
-        {
-            MainPanel.Controls.Clear();
-        }
-
         private void CreateNewTask(Dictionary<string, string> keys)
         {
-            foreach(var i in keys)
+            foreach (var i in keys)
             {
                 int num = MainPanel.Controls.Count + 1;
 
@@ -216,6 +203,39 @@ namespace EasyEnvironment
                 MainPanel.Controls.Add(myList);
             }
         }
+
+        private void CreateNewExtractTask(List<string> lists)
+        {
+            foreach (var i in lists)
+            {
+                int num = MainPanel.Controls.Count + 1;
+                var postFix = i.Substring(i.LastIndexOf('.'));
+
+                ExtractList myList = new ExtractList()
+                {
+                    TaskName = i.ToString(),
+                    Location = new Point(0, (num - 1) * 50),
+                    Num = num.ToString(),
+                    Type = postFix
+                };
+                MainPanel.Controls.Add(myList);
+                extractLists.Add(myList);
+            }
+        }
+
+        public void UpdateList(Dictionary<string, string> list)
+        {
+            this.list = list;
+            ClearMainPanel();
+            CreateNewTask(list);
+        }
+
+        private void ClearMainPanel()
+        {
+            MainPanel.Controls.Clear();
+        }
+
+       
 
         private void Save_MenuItem_Click(object sender, EventArgs e)
         {
@@ -311,6 +331,13 @@ namespace EasyEnvironment
             {
                 m.CheckBox_Select.Checked = flag;
             }
+        }
+
+        private void MenuItem_AutoInstall_Click(object sender, EventArgs e)
+        {
+            var list = Config.GetInstallList();
+
+            CreateNewExtractTask(list);
         }
     }
 }

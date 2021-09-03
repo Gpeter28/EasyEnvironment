@@ -83,9 +83,27 @@ namespace EasyEnvironment
             // 
             // //fsWrite.Write(hByte, 0, hByte.Length);
             //}
-
-
         }
+
+        public static List<string> GetInstallList()
+        {
+            var lists = new List<string>();
+
+
+
+            var filePaths = Directory.EnumerateFiles(Path.Combine(Global.DataPath, "Download"), "*.*")
+                .Where(s => s.EndsWith(".zip") || s.EndsWith(".msi")).ToList();
+
+            if (filePaths.Count == 0) return null;
+
+            foreach (var file in filePaths)
+            {
+                lists.Add(Path.GetFileName(file));
+            }
+            return lists;
+        }
+
+
 
         public static void WriteConfig(Dictionary<string, string> list)
         {
