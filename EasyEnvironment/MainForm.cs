@@ -213,7 +213,7 @@ namespace EasyEnvironment
 
                 ExtractList myList = new ExtractList()
                 {
-                    TaskName = i.ToString(),
+                    TaskName = i.Substring(0, i.Length - postFix.Length),
                     Location = new Point(0, (num - 1) * 50),
                     Num = num.ToString(),
                     Type = postFix
@@ -285,7 +285,7 @@ namespace EasyEnvironment
 
         private void TestRunUnZip()
         {
-            UnZip.ExtractFile(@"F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\VSCode.7z", @"F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\Test");
+            AutoInstall.ExtractFile(@"F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\VSCode.7z", @"F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\Test");
         }
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)

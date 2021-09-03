@@ -66,10 +66,7 @@ namespace EasyEnvironment.Utils
                 throw;
             }
         }
-    }
 
-    static class UnZip
-    {
         public static void ExtractFile(string source, string destination)
         {
             // If the directory doesn't exist, create it.
@@ -79,7 +76,11 @@ namespace EasyEnvironment.Utils
             //string zPath = ConfigurationManager.AppSettings["FileExtactorEXE"];
             //  string zPath = Properties.Settings.Default.FileExtactorEXE; ;
             // F:\src\github repository\OneStepSetEnvironment\EasyEnvironment\bin\Debug\Data\Import\7zip
-            string zPath = Global.AppPath + @"\Data\Import\7zip\7za.exe";
+            var zPath = Global.AppPath + @"\Data\Import\7zip\7za.exe";
+            Console.WriteLine(zPath + "zip Path");
+
+
+            int i = 0;
 
             try
             {
@@ -89,6 +90,7 @@ namespace EasyEnvironment.Utils
                 pro.Arguments = "x \"" + source + "\" -o\"" + destination + "\" -y";
                 var str = "x \"" + source + "\" -o\"" + destination + "\"";
                 Process x = Process.Start(pro);
+                Console.WriteLine("解压中");
                 x.WaitForExit();
                 Console.WriteLine("成功解压");
             }

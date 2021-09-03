@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EasyEnvironment;
+using EasyEnvironment.Utils;
 
 namespace OneSetSetUpEnvironment.CustomerControls
 {
@@ -40,7 +43,22 @@ namespace OneSetSetUpEnvironment.CustomerControls
 
         private void Btn_Start_Click(object sender, EventArgs e)
         {
-            
+            var path = Path.Combine(Global.DataPath + @$"Download\{TaskName}{Type}");
+            Console.WriteLine(path);
+            switch(Type)
+            {
+                case ".msi":
+                    AutoInstall.StartExe(path);
+                    break;
+                case ".zip":
+                    var dir = path.Substring(0, path.IndexOf(Type));
+                    Console.WriteLine(dir);
+
+
+                    int m = 0;
+                    AutoInstall.ExtractFile(path, dir);
+                    break;
+            }
         }
     }
 }

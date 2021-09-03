@@ -90,7 +90,7 @@ namespace EasyEnvironment
             var lists = new List<string>();
 
 
-
+            // https://stackoverflow.com/questions/163162/can-you-call-directory-getfiles-with-multiple-filters
             var filePaths = Directory.EnumerateFiles(Path.Combine(Global.DataPath, "Download"), "*.*")
                 .Where(s => s.EndsWith(".zip") || s.EndsWith(".msi")).ToList();
 
@@ -102,8 +102,6 @@ namespace EasyEnvironment
             }
             return lists;
         }
-
-
 
         public static void WriteConfig(Dictionary<string, string> list)
         {
