@@ -201,8 +201,17 @@ namespace EasyEnvironment
                     }
                 };
                 var s = i.Key.ToLower();
-                myList.SetUpControls(Image.FromFile($"{Config.IronPath}\\{s}.png"));
 
+
+                if (!File.Exists($"{Config.IconPath}\\{s}.png"))
+                {
+                    myList.SetUpControls(Image.FromFile($"{Config.IconPath}\\empty.png"));
+                }
+                else
+                {
+                    myList.SetUpControls(Image.FromFile($"{Config.IconPath}\\{s}.png"));
+
+                }
                 myList.URL = i.Value;
                 MainPanel.Controls.Add(myList);
             }

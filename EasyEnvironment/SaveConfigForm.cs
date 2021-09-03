@@ -38,7 +38,7 @@ namespace EasyEnvironment
 
                 myCheckBox.Num = index++;
                 myCheckBox.TaskName = i.Key;
-                myCheckBox.TaskImage = Image.FromFile($"{Config.IronPath}/{i.Key.ToLower()}.png");
+                myCheckBox.TaskImage = Image.FromFile($"{Config.IconPath}/{i.Key.ToLower()}.png");
                 MainPanel.Controls.Add(myCheckBox);
             }
         }
