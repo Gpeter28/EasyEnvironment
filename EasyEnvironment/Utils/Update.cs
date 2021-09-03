@@ -15,8 +15,6 @@ namespace EasyEnvironment.Utils
 
         public static void StartUpdate()
         {
-
-
             using(var http = new WebClient())
             {
                 http.Encoding = Encoding.UTF8;

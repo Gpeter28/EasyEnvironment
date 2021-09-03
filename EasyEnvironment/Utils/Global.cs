@@ -13,6 +13,6 @@ namespace EasyEnvironment.Utils
     {
         // Environment.CurrentDirectory
         public static string AppPath = Environment.CurrentDirectory;
-        public static string DataPath = AppPath + @"\Data\Download\";
+        public static string DataPath = AppPath + @"\Data\";
     }
 }
