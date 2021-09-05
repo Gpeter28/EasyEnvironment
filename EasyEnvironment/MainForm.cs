@@ -152,6 +152,11 @@ namespace EasyEnvironment
 
         private void New_MenuItem_Click(object sender, EventArgs e)
         {
+            if (extractLists.Count > 0)
+            {
+                ClearMainPanel();
+                extractLists.Clear();
+            }
             CreateNewTask();
         }
 
@@ -335,6 +340,9 @@ namespace EasyEnvironment
 
         private void MenuItem_AutoInstall_Click(object sender, EventArgs e)
         {
+            ClearMainPanel();
+            extractLists.Clear();
+
             var list = Config.GetInstallList();
 
             CreateNewExtractTask(list);
