@@ -20,7 +20,7 @@ namespace EasyEnvironment
         [STAThread]
         static void Main()
         {
-           
+           // Now this Branch is used for newUI
 
             CreateFolders();
             
