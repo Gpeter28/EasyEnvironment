@@ -299,23 +299,6 @@ namespace EasyEnvironment
         }
 
 
-        private void AutoStartToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var autoStartFlag = AutoStart.Check();
-
-            if (autoStartFlag)
-            {
-                this.AutoStartMenuItem.Text = "AutoStart ×";
-                AutoStart.Remove();
-                MessageBox.Show("Success Remove AutoStart");
-            }
-            else
-            {
-                AutoStart.Set();
-                MessageBox.Show("Success Set AutoStart");
-                this.AutoStartMenuItem.Text = "AutoStart √";
-            }
-        }
 
         private void EnvironmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -346,6 +329,11 @@ namespace EasyEnvironment
             var list = Config.GetInstallList();
 
             CreateNewExtractTask(list);
+        }
+
+        private void MenuItem_Options_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

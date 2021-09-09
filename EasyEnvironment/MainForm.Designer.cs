@@ -41,8 +41,8 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_AutoInstall = new System.Windows.Forms.ToolStripMenuItem();
             this.EnvironmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AutoStartMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingsToolMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_Options = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.LeftPanel = new System.Windows.Forms.Panel();
             this.CheckBox_SelectAll = new System.Windows.Forms.CheckBox();
@@ -70,7 +70,7 @@
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newTask_ToolStripMenuItem,
             this.directoryToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.SettingsToolMenu});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(960, 35);
@@ -141,21 +141,21 @@
             this.EnvironmentToolStripMenuItem.Text = "Environment";
             this.EnvironmentToolStripMenuItem.Click += new System.EventHandler(this.EnvironmentToolStripMenuItem_Click);
             // 
-            // settingsToolStripMenuItem
+            // SettingsToolMenu
             // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AutoStartMenuItem});
-            this.settingsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F);
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(100, 31);
-            this.settingsToolStripMenuItem.Text = "Settings";
+            this.SettingsToolMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItem_Options});
+            this.SettingsToolMenu.Font = new System.Drawing.Font("Microsoft YaHei UI", 15F);
+            this.SettingsToolMenu.Name = "SettingsToolMenu";
+            this.SettingsToolMenu.Size = new System.Drawing.Size(100, 31);
+            this.SettingsToolMenu.Text = "Settings";
             // 
-            // AutoStartMenuItem
+            // MenuItem_Options
             // 
-            this.AutoStartMenuItem.Name = "AutoStartMenuItem";
-            this.AutoStartMenuItem.Size = new System.Drawing.Size(196, 32);
-            this.AutoStartMenuItem.Text = "AutoStart ×";
-            this.AutoStartMenuItem.Click += new System.EventHandler(this.AutoStartToolStripMenuItem_Click);
+            this.MenuItem_Options.Name = "MenuItem_Options";
+            this.MenuItem_Options.Size = new System.Drawing.Size(180, 32);
+            this.MenuItem_Options.Text = "Options";
+            this.MenuItem_Options.Click += new System.EventHandler(this.MenuItem_Options_Click);
             // 
             // MainPanel
             // 
@@ -249,13 +249,13 @@
         private System.Windows.Forms.ToolStripMenuItem directoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_AutoInstall;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AutoStartMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SettingsToolMenu;
         private System.Windows.Forms.ToolStripMenuItem EnvironmentToolStripMenuItem;
         private System.Windows.Forms.CheckBox CheckBox_SelectAll;
         private System.Windows.Forms.Button Button_AllStart;
         private System.Windows.Forms.Button Button_AllPause;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Options;
     }
 }
 
