@@ -28,8 +28,8 @@ namespace EasyEnvironment.CustomerControls
 
         public string TaskName
         {
-            get { return lbl_TaskName.Text; }
-            set { lbl_TaskName.Text = value; }
+            get { return TxtBox_TaskName.Text; }
+            set { TxtBox_TaskName.Text = value; }
         }
 
         public Image TaskImage

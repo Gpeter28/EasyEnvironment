@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EasyEnvironment.CustomerControls;
+using OneSetSetUpEnvironment.Utils;
 
 namespace EasyEnvironment
 {
@@ -38,7 +39,8 @@ namespace EasyEnvironment
 
                 myCheckBox.Num = index++;
                 myCheckBox.TaskName = i.Key;
-                myCheckBox.TaskImage = Image.FromFile($"{Config.IconPath}/{i.Key.ToLower()}.png");
+                myCheckBox.TaskImage = Tools.GetImage(i.Key.ToLower());
+                // myCheckBox.TaskImage = Image.FromFile($"{Config.IconPath}/{i.Key.ToLower()}.png");
                 MainPanel.Controls.Add(myCheckBox);
             }
         }

@@ -16,7 +16,10 @@ using System.Reflection;
 using System.Resources;
 using EasyEnvironment.CustomerControls;
 using EasyEnvironment.Utils;
+using OneSetSetUpEnvironment;
 using OneSetSetUpEnvironment.CustomerControls;
+using System.Collections;
+using OneSetSetUpEnvironment.Utils;
 
 namespace EasyEnvironment
 {
@@ -27,56 +30,12 @@ namespace EasyEnvironment
             InitializeComponent();
         }
         RichTextBox ownUrl = new RichTextBox();
-        Dictionary<string,string> list = new Dictionary<string, string>();
+        Dictionary<string,string> _list = new Dictionary<string, string>();
 
         // In Future Use More Nomal Way to do it ?
         private List<MyList> myLists = new List<MyList>(5);
         private List<ExtractList> extractLists = new List<ExtractList>(5);
 
-        //public void MainFormDownLoad(string url, string path, string name)
-        //{
-        //    try
-        //    {
-        //        HttpWebRequest web = (HttpWebRequest)WebRequest.Create(url);
-        //        HttpWebResponse response = (HttpWebResponse)web.GetResponse();
-        //        using (Stream stream = response.GetResponseStream())
-        //        {
-        //            using (FileStream fs = new FileStream(path, FileMode.Create))
-        //            {
-        //                long totalDownloadedByte = 0;
-
-        //                byte[] bytes = new byte[2048];
-        //                int osize = stream.Read(bytes, 0, bytes.Length);
-
-        //                while (osize > 0)
-        //                {
-        //                    totalDownloadedByte = osize + totalDownloadedByte;
-        //                    fs.Write(bytes, 0, osize);
-        //                    osize = stream.Read(bytes, 0, bytes.Length);
-
-        //                    if (totalDownloadedByte < response.ContentLength)
-        //                    {
-        //                        UpdateProcessBar(totalDownloadedByte * 100 / response.ContentLength);
-        //                        // Tracking...
-        //                        // Console.WriteLine("[{0}%]  downloading '{1}' ({2}/{3})...", totalDownloadedByte * 100 / response.ContentLength, name, totalDownloadedByte, response.ContentLength);
-        //                    }
-
-
-        //                }
-        //                // Download Success
-        //                UpdateProcessBar(0);
-
-
-        //                // Global.Print("下载 '" + name + "' 完成   (大小: " + totalDownloadedByte.ToString() + " 字节) ...");
-        //            }
-        //        }
-
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine("error");
-        //    }
-        //}
         public static string DirPath = AppDomain.CurrentDomain.BaseDirectory;
 
         public static ResourceManager rm =
@@ -122,11 +81,11 @@ namespace EasyEnvironment
         //                var final = config.Split(' ');
 
         //                // Remove /r       => Probably Have more Great Method;
-        //                list.Add(final[0], final[1].Substring(0, final[1].Length - 1));
+        //                _list.Add(final[0], final[1].Substring(0, final[1].Length - 1));
         //            }
         //        }
 
-        //        foreach (var i in list)
+        //        foreach (var i in _list)
         //        {
         //            Console.WriteLine(i.Key + " " + i.Value);
         //        }
@@ -143,10 +102,8 @@ namespace EasyEnvironment
         private void Load_MenuItem_Click(object sender, EventArgs e)
         {
             ClearMainPanel();
-
-
             var s = Config.ReadConfig();
-            list = s;
+            _list = s;
             CreateNewTask(s);
         }
 
@@ -194,20 +151,12 @@ namespace EasyEnvironment
                 };
                 var s = i.Key.ToLower();
 
-
-                if (!File.Exists($"{Config.IconPath}\\{s}.png"))
-                {
-                    myList.SetUpControls(Image.FromFile($"{Config.IconPath}\\empty.png"));
-                }
-                else
-                {
-                    myList.SetUpControls(Image.FromFile($"{Config.IconPath}\\{s}.png"));
-
-                }
+                myList.SetUpControls(Tools.GetImage(s));
                 myList.URL = i.Value;
                 MainPanel.Controls.Add(myList);
             }
         }
+
 
         private void CreateNewExtractTask(List<string> lists)
         {
@@ -230,9 +179,9 @@ namespace EasyEnvironment
 
         public void UpdateList(Dictionary<string, string> list)
         {
-            this.list = list;
+            this._list = list;
             ClearMainPanel();
-            CreateNewTask(list);
+            CreateNewTask(_list);
         }
 
         private void ClearMainPanel()
@@ -244,15 +193,25 @@ namespace EasyEnvironment
 
         private void Save_MenuItem_Click(object sender, EventArgs e)
         {
-            if(list == null)
+            //if(_list == null)
+            //{
+            //    return;
+            //}
+            _list.Clear();
+            string defaultStr = "Task";
+            int index = 0;
+            foreach (var i in MainPanel.Controls)
             {
-                return;
+                var myList = (MyList) i;
+                _list.Add($"{defaultStr} + {index++}", myList.URL);
             }
+
+
             SaveConfigForm saveConfigForm = new SaveConfigForm();
-            saveConfigForm.SetDictionary(list);
+            saveConfigForm.SetDictionary(_list);
             saveConfigForm.Show(this);
 
-            // Config.WriteConfig(list);
+            // Config.WriteConfig(_list);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -260,7 +219,7 @@ namespace EasyEnvironment
             // info = CultureInfo.CreateSpecificCulture("en");
 
 #if DEBUG
-            TestEnvironmentVariables();
+            // TestEnvironmentVariables();
             // TestRunExe();
             // TestRunUnZip();
 #endif
@@ -333,7 +292,9 @@ namespace EasyEnvironment
 
         private void MenuItem_Options_Click(object sender, EventArgs e)
         {
+            OptionsForm optionsForm = new OptionsForm();
 
+            optionsForm.ShowDialog();
         }
     }
 }

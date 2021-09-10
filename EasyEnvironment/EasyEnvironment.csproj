@@ -199,6 +199,7 @@
       <DependentUpon>MyList.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\AutoStart.cs" />
+    <Compile Include="Utils\Tools.cs" />
     <Compile Include="Utils\Download.cs" />
     <Compile Include="Language\IniReader.cs" />
     <Compile Include="Language\InitLanguage.cs" />
