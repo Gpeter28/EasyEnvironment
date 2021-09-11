@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OneSetSetUpEnvironment.Utils;
 
 namespace OneSetSetUpEnvironment
 {
@@ -19,6 +20,16 @@ namespace OneSetSetUpEnvironment
         }
 
         private void Options_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void CheckBox_SaveSettings_CheckedChanged(object sender, EventArgs e)
+        {
+            Options.IsRefreshOnSave = CheckBox_SaveSettings.Checked;
+        }
+
+        private void CheckBox_AutoStart_CheckedChanged(object sender, EventArgs e)
         {
             var autoStartFlag = AutoStart.Check();
 
@@ -32,6 +43,12 @@ namespace OneSetSetUpEnvironment
                 AutoStart.Set();
                 MessageBox.Show("Success Set AutoStart");
             }
+        }
+
+        private void OptionsForm_Load(object sender, EventArgs e)
+        {
+            CheckBox_SaveSettings.Checked = Options.IsRefreshOnSave;
+            CheckBox_AutoStart.Checked = AutoStart.Check();
         }
     }
 }

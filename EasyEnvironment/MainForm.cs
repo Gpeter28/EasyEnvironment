@@ -198,15 +198,16 @@ namespace EasyEnvironment
             //    return;
             //}
             _list.Clear();
-            string defaultStr = "Task";
             int index = 0;
             foreach (var i in MainPanel.Controls)
             {
                 var myList = (MyList) i;
-                _list.Add($"{defaultStr} + {index++}", myList.URL);
+                var j = myList.URL.LastIndexOf('/');
+
+                if (j == -1) continue;
+                var newStr = myList.URL.Substring(j + 1);
+                _list.Add(newStr, myList.URL);
             }
-
-
             SaveConfigForm saveConfigForm = new SaveConfigForm();
             saveConfigForm.SetDictionary(_list);
             saveConfigForm.Show(this);

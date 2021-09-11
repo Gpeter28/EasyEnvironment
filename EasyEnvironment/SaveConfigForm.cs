@@ -64,11 +64,20 @@ namespace EasyEnvironment
 
             Config.WriteConfig(list);
             MessageBox.Show("Success Show");
-
-
-            MainForm mf = (MainForm)this.Owner;
-            mf.UpdateList(list);
             this.Close();
+
+            //MainForm mf = (MainForm)this.Owner;
+            //mf.UpdateList(list);
+            //this.Close();
+        }
+
+        private void SaveConfigForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Options.IsRefreshOnSave)
+            {
+                MainForm mf = (MainForm)this.Owner;
+                mf.UpdateList(list);
+            }
         }
     }
 }
