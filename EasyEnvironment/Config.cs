@@ -140,18 +140,12 @@ namespace EasyEnvironment
             return lists;
         }
 
-        public static void WriteConfig(Dictionary<string, string> list, bool isEnv = true)
+        public static void WriteConfig(Dictionary<string, string> _list, Dictionary<string, string> _sList)
         {
-            string str = "";
-            if (isEnv)
-            {
-                str = "--env\r\n";
-            }
-            else
-            {
-                str = "--software\r\n";
-            }
-            str += DictionaryToString(list);
+            string str = "--env\r\n";
+            str += DictionaryToString(_list);
+            str += "\n\n--software\r\n";
+            str += DictionaryToString(_sList);
 
             using var sr = new StreamWriter(ConfigFileSaveName, false);
             sr.WriteLine(str);

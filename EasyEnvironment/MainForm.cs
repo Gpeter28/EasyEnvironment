@@ -242,7 +242,7 @@ namespace EasyEnvironment
             }
             SaveConfigForm saveConfigForm = new SaveConfigForm();
             Options.IsEnv = ComboBox_Type.SelectedIndex == 0;
-            saveConfigForm.SetDictionary(_selecteDictionary);
+            saveConfigForm.SetDictionary(_envDictionary, _softwareDictionary);
             saveConfigForm.Show(this);
 
             // Config.WriteConfig(_list);

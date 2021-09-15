@@ -19,18 +19,20 @@ namespace EasyEnvironment
             InitializeComponent();
         }
 
-        public void SetDictionary(Dictionary<string, string> lists)
+        public void SetDictionary(Dictionary<string, string> envList, Dictionary<string, string> sList)
         {
-            this.list = lists;
+            this.envList = envList;
+            this.softwareList = sList;
         }
 
 
-        private Dictionary<string, string> list = new Dictionary<string, string>();
+        private Dictionary<string, string> envList = new Dictionary<string, string>();
+        private Dictionary<string, string> softwareList = new Dictionary<string, string>();
 
         private void SaveConfigForm_Load(object sender, EventArgs e)
         {
             int index = 1;
-            foreach(var i in list)
+            foreach(var i in envList)
             {
                 MyCheckBox myCheckBox = new MyCheckBox();
 
@@ -41,7 +43,22 @@ namespace EasyEnvironment
                 myCheckBox.TaskName = i.Key;
                 myCheckBox.TaskImage = Tools.GetImage(i.Key.ToLower());
                 // myCheckBox.TaskImage = Image.FromFile($"{Config.IconPath}/{i.Key.ToLower()}.png");
-                MainPanel.Controls.Add(myCheckBox);
+                EnvPanel.Controls.Add(myCheckBox);
+            }
+
+            index = 1;
+            foreach (var i in softwareList)
+            {
+                MyCheckBox myCheckBox = new MyCheckBox();
+
+                myCheckBox.Name = index.ToString();
+                myCheckBox.Location = new Point(0, (index - 1) * 50);
+
+                myCheckBox.Num = index++;
+                myCheckBox.TaskName = i.Key;
+                myCheckBox.TaskImage = Tools.GetImage(i.Key.ToLower());
+                // myCheckBox.TaskImage = Image.FromFile($"{Config.IconPath}/{i.Key.ToLower()}.png");
+                SoftwarePanel.Controls.Add(myCheckBox);
             }
         }
 
@@ -53,20 +70,25 @@ namespace EasyEnvironment
 
         private void Btn_Confirm_Click(object sender, EventArgs e)
         {
-            foreach(var control in MainPanel.Controls)
+            foreach(var control in EnvPanel.Controls)
             {
                 var checkbox = (MyCheckBox)control;
                 if (!checkbox.IsChecked)
                 {
-                    list.Remove(checkbox.TaskName);
+                    envList.Remove(checkbox.TaskName);
                 }
             }
 
-            
-            Config.WriteConfig(list, Options.IsEnv);
+            foreach (var control in SoftwarePanel.Controls)
+            {
+                var checkbox = (MyCheckBox)control;
+                if (!checkbox.IsChecked)
+                {
+                    softwareList.Remove(checkbox.TaskName);
+                }
+            }
+            Config.WriteConfig(envList, softwareList);
             MessageBox.Show("Success Show");
-
-
 
             this.Close();
 
@@ -80,8 +102,10 @@ namespace EasyEnvironment
             if (Options.IsRefreshOnSave)
             {
                 MainForm mf = (MainForm)this.Owner;
-                mf.UpdateList(list);
+                mf.UpdateList(envList);
             }
+
+
         }
     }
 }
