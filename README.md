@@ -3,11 +3,6 @@
 
 
 
-
-
-
-
-
  个人用于自己多台电脑间软件、环境无缝切换。目前正在建设阶段
 - [x] 开机启动
 - [ ] 界面
@@ -26,11 +21,11 @@
 
 项目结构
 
--CustomerControls 自制控件
--Language 语言
--Utils 工具类
--Forms (目前暂时使用WinForm 未来希望能用上spp那种)
-ChangeEnvironmentForm 用户变量窗口
-MainForm 主页窗口
-OptionsForm 选项小窗口
-SaveConfigForm 保存Config窗口
+-CustomerControls 自制控件  
+-Language 语言  
+-Utils 工具类  
+-Forms (目前暂时使用WinForm 未来希望能用上spp那种)  
+ChangeEnvironmentForm 用户变量窗口  
+MainForm 主页窗口  
+OptionsForm 选项小窗口  
+SaveConfigForm 保存Config窗口  
