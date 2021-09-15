@@ -20,3 +20,17 @@
 - [ ] 实现环境的安装（重点 被平时的语言环境整烦了）
 - [ ] 优化下载后的界面
 - [ ] 允许下载的中断和恢复
+- [ ] 通过个人服务器下载.ini 了解更新版本
+
+
+
+项目结构
+
+-CustomerControls 自制控件
+-Language 语言
+-Utils 工具类
+-Forms (目前暂时使用WinForm 未来希望能用上spp那种)
+ChangeEnvironmentForm 用户变量窗口
+MainForm 主页窗口
+OptionsForm 选项小窗口
+SaveConfigForm 保存Config窗口
