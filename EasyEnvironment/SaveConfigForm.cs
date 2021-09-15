@@ -62,8 +62,12 @@ namespace EasyEnvironment
                 }
             }
 
-            Config.WriteConfig(list);
+            
+            Config.WriteConfig(list, Options.IsEnv);
             MessageBox.Show("Success Show");
+
+
+
             this.Close();
 
             //MainForm mf = (MainForm)this.Owner;

@@ -55,7 +55,6 @@ namespace OneSetSetUpEnvironment.CustomerControls
                     Console.WriteLine(dir);
 
 
-                    int m = 0;
                     AutoInstall.ExtractFile(path, dir);
                     break;
             }

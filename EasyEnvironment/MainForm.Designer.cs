@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("VSCode");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("F", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("VSCode");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("F", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.newTask_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +49,7 @@
             this.Button_AllStart = new System.Windows.Forms.Button();
             this.Button_AllPause = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.ComboBox_Type = new System.Windows.Forms.ComboBox();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,12 +57,12 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(0, 38);
             this.treeView1.Name = "treeView1";
-            treeNode3.Name = "节点1";
-            treeNode3.Text = "VSCode";
-            treeNode4.Name = "节点0";
-            treeNode4.Text = "F";
+            treeNode5.Name = "节点1";
+            treeNode5.Text = "VSCode";
+            treeNode6.Name = "节点0";
+            treeNode6.Text = "F";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(126, 575);
             this.treeView1.TabIndex = 0;
             // 
@@ -153,7 +154,7 @@
             // MenuItem_Options
             // 
             this.MenuItem_Options.Name = "MenuItem_Options";
-            this.MenuItem_Options.Size = new System.Drawing.Size(180, 32);
+            this.MenuItem_Options.Size = new System.Drawing.Size(159, 32);
             this.MenuItem_Options.Text = "Options";
             this.MenuItem_Options.Click += new System.EventHandler(this.MenuItem_Options_Click);
             // 
@@ -213,10 +214,23 @@
             this.button2.Text = "全部开始";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // ComboBox_Type
+            // 
+            this.ComboBox_Type.FormattingEnabled = true;
+            this.ComboBox_Type.Items.AddRange(new object[] {
+            "Environment",
+            "Software"});
+            this.ComboBox_Type.Location = new System.Drawing.Point(220, 50);
+            this.ComboBox_Type.Name = "ComboBox_Type";
+            this.ComboBox_Type.Size = new System.Drawing.Size(94, 20);
+            this.ComboBox_Type.TabIndex = 7;
+            this.ComboBox_Type.SelectedIndexChanged += new System.EventHandler(this.ComboBox_Type_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(960, 617);
+            this.Controls.Add(this.ComboBox_Type);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Button_AllPause);
             this.Controls.Add(this.Button_AllStart);
@@ -256,6 +270,7 @@
         private System.Windows.Forms.Button Button_AllPause;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_Options;
+        private System.Windows.Forms.ComboBox ComboBox_Type;
     }
 }
 

@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C3A4DA57-DC06-4924-8301-53E5FF13D36A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>OneSetSetUpEnvironment</RootNamespace>
-    <AssemblyName>OneSetSetUpEnvironment</AssemblyName>
+    <RootNamespace>EasyEnvironment</RootNamespace>
+    <AssemblyName>EasyEnvironment</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -199,6 +199,7 @@
       <DependentUpon>MyList.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\AutoStart.cs" />
+    <Compile Include="Utils\Enum.cs" />
     <Compile Include="Utils\Options.cs" />
     <Compile Include="Utils\Tools.cs" />
     <Compile Include="Utils\Download.cs" />

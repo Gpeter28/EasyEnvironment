@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 using EasyEnvironment.Utils;
 
 namespace EasyEnvironment
@@ -26,43 +25,83 @@ namespace EasyEnvironment
         public static string DownloadFileName = Path.Combine(Global.DataPath, "Download");
         public static string IconPath = Path.Combine(Global.DataPath, "Icon");
 
-        public static Dictionary<string, string> ReadConfig()
+        private static Dictionary<string, string> envDictionary;
+        private static Dictionary<string, string> softwareDictionary;
+
+        public static Dictionary<string, string> GetEnvDictionary()
+        {
+            return envDictionary;
+        }
+
+        public static Dictionary<string, string> GetSoftwareDictionary()
+        {
+            return softwareDictionary;
+        }
+
+
+
+
+
+        public static Situation ReadConfig()
         {
             if (!File.Exists(ConfigFileName))
             {
                 File.Create(ConfigFileName);
+                return Situation.NoFile;
             }
 
-            string msg = "";
-            using (FileStream fsRead = new FileStream(ConfigFileName, FileMode.Open))
-            {
-                int fLen = (int)fsRead.Length;
+            // Init
+            envDictionary = new Dictionary<string, string>();
+            softwareDictionary = new Dictionary<string, string>();
 
-                byte[] hByte = new byte[fLen];
+            #region FileStreamVersion
+            // string msg = "";
+            //using (FileStream fsRead = new FileStream(ConfigFileName, FileMode.Open))
+            //{
+            //    int fLen = (int)fsRead.Length;
 
-                int read = fsRead.Read(hByte, 0, hByte.Length);
+            //    byte[] hByte = new byte[fLen];
 
-                msg = System.Text.Encoding.UTF8.GetString(hByte);
-            }
+            //    int read = fsRead.Read(hByte, 0, hByte.Length);
 
-            var pairs = new Dictionary<string, string>();
+            //    msg = System.Text.Encoding.UTF8.GetString(hByte);
+            //}
+
+
+            #endregion
+
+
+            using StreamReader sr = new StreamReader(ConfigFileName);
+            string msg = sr.ReadToEnd();
+
+            // var pairs = new Dictionary<string, string>();
             var mm = msg.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            bool envFlag = false;
             foreach (var i in mm)
             {
                 if (i.StartsWith(@"//"))
                 {
                     continue;
                 }
-
+                 
+                // Here can Update More Great Idea Like More --Options Now Only Provide two
                 if (i.StartsWith("--"))
                 {
+                    envFlag = !envFlag;
                     continue;
                 }
-
                 var key = i.Split(' ');
-                pairs.Add(key[0], key[1]);
+
+                if (envFlag)
+                {
+                    envDictionary.Add(key[0], key[1]);
+                }
+                else
+                {
+                    softwareDictionary.Add(key[0], key[1]);
+                }
             }
-            return pairs;
+            return Situation.Success;
         }
 
         public static void WriteConfig(string config)
@@ -75,8 +114,6 @@ namespace EasyEnvironment
             // https://stackoverflow.com/questions/4963667/filestream-vs-differences-streamwriter
             using var sr = new StreamWriter(ConfigFileSaveName, true);
             sr.WriteLine(config);
-
-
             //using (FileStream fsWrite = new FileStream(ConfigFileSaveName, FileMode.Create))
             //{
             //byte[] hByte = System.Text.Encoding.UTF8.GetBytes(config);
@@ -103,10 +140,18 @@ namespace EasyEnvironment
             return lists;
         }
 
-        public static void WriteConfig(Dictionary<string, string> list)
+        public static void WriteConfig(Dictionary<string, string> list, bool isEnv = true)
         {
- 
-            var str = DictionaryToString(list);
+            string str = "";
+            if (isEnv)
+            {
+                str = "--env\r\n";
+            }
+            else
+            {
+                str = "--software\r\n";
+            }
+            str += DictionaryToString(list);
 
             using var sr = new StreamWriter(ConfigFileSaveName, false);
             sr.WriteLine(str);

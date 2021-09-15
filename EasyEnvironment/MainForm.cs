@@ -30,7 +30,9 @@ namespace EasyEnvironment
             InitializeComponent();
         }
         RichTextBox ownUrl = new RichTextBox();
-        Dictionary<string,string> _list = new Dictionary<string, string>();
+        private Dictionary<string,string> _envDictionary = new Dictionary<string, string>();
+        private Dictionary<string, string> _softwareDictionary = new Dictionary<string, string>();
+        private Dictionary<string, string> _selecteDictionary = new Dictionary<string, string>();
 
         // In Future Use More Nomal Way to do it ?
         private List<MyList> myLists = new List<MyList>(5);
@@ -103,8 +105,22 @@ namespace EasyEnvironment
         {
             ClearMainPanel();
             var s = Config.ReadConfig();
-            _list = s;
-            CreateNewTask(s);
+
+            switch (s)
+            {
+                case Situation.Success:
+                    _envDictionary = Config.GetEnvDictionary();
+                    _softwareDictionary = Config.GetSoftwareDictionary();
+                    break;
+                case Situation.NoFile:
+                    MessageBox.Show("Doesn't have Config.Now has Create");
+                    break;
+                case Situation.Empty:
+                    MessageBox.Show("Config is Empty");
+                    break;
+            }
+
+            ComboBox_Type.SelectedIndex = 0;
         }
 
         private void New_MenuItem_Click(object sender, EventArgs e)
@@ -177,11 +193,28 @@ namespace EasyEnvironment
             }
         }
 
-        public void UpdateList(Dictionary<string, string> list)
+        public void UpdateList(Dictionary<string, string> _list)
         {
-            this._list = list;
+            this._selecteDictionary = _list;
             ClearMainPanel();
             CreateNewTask(_list);
+        }
+
+        public void UpdateList(int index)
+        {
+            ClearMainPanel();
+            Dictionary<string, string> _list = new Dictionary<string, string>();
+            switch (ComboBox_Type.SelectedIndex)
+            {
+                case 0:
+                    _list = _envDictionary;
+                    break;
+                case 1:
+                    _list = _softwareDictionary;
+                    break;
+            }
+
+            UpdateList(_list);
         }
 
         private void ClearMainPanel()
@@ -197,8 +230,7 @@ namespace EasyEnvironment
             //{
             //    return;
             //}
-            _list.Clear();
-            int index = 0;
+            _selecteDictionary.Clear();
             foreach (var i in MainPanel.Controls)
             {
                 var myList = (MyList) i;
@@ -206,10 +238,11 @@ namespace EasyEnvironment
 
                 if (j == -1) continue;
                 var newStr = myList.URL.Substring(j + 1);
-                _list.Add(newStr, myList.URL);
+                _selecteDictionary.Add(newStr, myList.URL);
             }
             SaveConfigForm saveConfigForm = new SaveConfigForm();
-            saveConfigForm.SetDictionary(_list);
+            Options.IsEnv = ComboBox_Type.SelectedIndex == 0;
+            saveConfigForm.SetDictionary(_selecteDictionary);
             saveConfigForm.Show(this);
 
             // Config.WriteConfig(_list);
@@ -229,6 +262,7 @@ namespace EasyEnvironment
             // newTask_ToolStripMenuItem.Text = lan_cn.NewTask;
             // newTask_ToolStripMenuItem.Text = rm.GetString("NewTask");
             // newTask_ToolStripMenuItem.Text = rm.GetString("NewTask", info);
+            
         }
 
         private void TestEnvironmentVariables()
@@ -296,6 +330,11 @@ namespace EasyEnvironment
             OptionsForm optionsForm = new OptionsForm();
 
             optionsForm.ShowDialog();
+        }
+
+        private void ComboBox_Type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateList(ComboBox_Type.SelectedIndex);
         }
     }
 }

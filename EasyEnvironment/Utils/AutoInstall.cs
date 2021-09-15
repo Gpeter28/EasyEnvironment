@@ -80,8 +80,6 @@ namespace EasyEnvironment.Utils
             Console.WriteLine(zPath + "zip Path");
 
 
-            int i = 0;
-
             try
             {
                 ProcessStartInfo pro = new ProcessStartInfo();

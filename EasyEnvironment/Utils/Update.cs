@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 namespace EasyEnvironment.Utils
 {
    
+    // Future Update
+
+    // Update Url From own Server
     class Update
     {
         private static string UpdateUrl = "static.gpeter28.com/update.ini";

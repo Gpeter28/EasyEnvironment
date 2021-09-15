@@ -56,7 +56,7 @@
             // checkBox_Select
             // 
             this.checkBox_Select.Font = new System.Drawing.Font("宋体", 15F);
-            this.checkBox_Select.Location = new System.Drawing.Point(267, 14);
+            this.checkBox_Select.Location = new System.Drawing.Point(328, 15);
             this.checkBox_Select.Name = "checkBox_Select";
             this.checkBox_Select.Size = new System.Drawing.Size(30, 30);
             this.checkBox_Select.TabIndex = 3;
@@ -78,7 +78,7 @@
             this.Controls.Add(this.picBox_Task);
             this.Controls.Add(this.lbl_Num);
             this.Name = "MyCheckBox";
-            this.Size = new System.Drawing.Size(300, 50);
+            this.Size = new System.Drawing.Size(361, 50);
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Task)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -12,5 +12,7 @@ namespace OneSetSetUpEnvironment.Utils
         public static bool IsAutoStart;
 
         public static bool IsRefreshOnSave = false;
+
+        public static bool IsEnv = true;
     }
 }
