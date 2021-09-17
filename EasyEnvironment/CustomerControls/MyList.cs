@@ -75,6 +75,9 @@ namespace EasyEnvironment.CustomerControls
             
         }
 
+
+        // https://www.youtube.com/watch?v=CbKSh4OnCN8
+        // C# Tutorial - How to Download a File from internet using C# (With pause and resume)
         private void Btn_StartStop_Click(object sender, EventArgs e)
         {
             Console.WriteLine(MainForm.DirPath);
@@ -135,15 +138,13 @@ namespace EasyEnvironment.CustomerControls
                             }
                         }
 
-
-                        Action action2 = new Action(() =>
+                        this.Invoke(new Action(() =>
                         {
                             this.ProcessValue = 100;
                             this.ProcessValuePercentage = 100;
                             this.btn_StartStop.Text = "Start";
-                        });
+                        }));
 
-                        this.Invoke(action2);
                         // Global.Print("下载 '" + name + "' 完成   (大小: " + totalDownloadedByte.ToString() + " 字节) ...");
                     }
                 }

@@ -200,6 +200,7 @@
     </Compile>
     <Compile Include="Utils\AutoStart.cs" />
     <Compile Include="Utils\Enum.cs" />
+    <Compile Include="Utils\FileHelper.cs" />
     <Compile Include="Utils\Options.cs" />
     <Compile Include="Utils\Tools.cs" />
     <Compile Include="Utils\Download.cs" />
