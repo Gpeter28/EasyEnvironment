@@ -18,4 +18,14 @@ namespace EasyEnvironment.Utils
         Success,
         Error
     }
+
+    public enum Status
+    {
+        Downloading,
+        Paused,
+        Completed,
+        Error,
+        None
+    }
+
 }

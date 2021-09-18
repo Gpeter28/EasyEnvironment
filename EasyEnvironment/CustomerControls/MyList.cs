@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using System.Threading;
 using EasyEnvironment;
 using EasyEnvironment.Utils;
 
@@ -47,6 +48,7 @@ namespace EasyEnvironment.CustomerControls
         //    set => CheckBox_Select.Checked = !CheckBox_Select.Checked;
         //}
 
+
         public NewTask MyTask { get; set; }
 
 
@@ -76,6 +78,8 @@ namespace EasyEnvironment.CustomerControls
         }
 
 
+
+
         // https://www.youtube.com/watch?v=CbKSh4OnCN8
         // C# Tutorial - How to Download a File from internet using C# (With pause and resume)
         private void Btn_StartStop_Click(object sender, EventArgs e)
@@ -87,7 +91,7 @@ namespace EasyEnvironment.CustomerControls
             {
                 if(!File.Exists(filePath))
                 {
-                    Task.Run(() => this.DownLoadFile(txtBox_DownURL.Text, filePath, s));
+                    //Task.Run(() => this.DownLoadFile(txtBox_DownURL.Text, filePath, s));
 
                     _ = (btn_StartStop.Text == "Start") ? btn_StartStop.Text = "Stop" : btn_StartStop.Text = "Start";
                 }
@@ -103,58 +107,6 @@ namespace EasyEnvironment.CustomerControls
         }
 
 
-        public void DownLoadFile(string url, string path, string name)
-        {
-            try
-            {
-                HttpWebRequest web = (HttpWebRequest)WebRequest.Create(url);
-                HttpWebResponse response = (HttpWebResponse)web.GetResponse();
-                using (Stream stream = response.GetResponseStream())
-                {
-                    using (FileStream fs = new FileStream(path, FileMode.Create))
-                    {
-                        long totalDownloadedByte = 0;
-
-                        byte[] bytes = new byte[2048];
-                        int osize = stream.Read(bytes, 0, bytes.Length);
-
-                        while (osize > 0)
-                        {
-                            totalDownloadedByte = osize + totalDownloadedByte;
-                            fs.Write(bytes, 0, osize);
-                            osize = stream.Read(bytes, 0, bytes.Length);
-
-                            if (totalDownloadedByte < response.ContentLength)
-                            {
-                                Action action = new Action(() =>
-                                {
-                                    this.ProcessValue = (int)(totalDownloadedByte * 100 / response.ContentLength);
-                                    this.ProcessValuePercentage = (totalDownloadedByte * 100/ response.ContentLength);
-                                } );
-                                this.Invoke(action);
-
-                                // Tracking...
-                                // Console.WriteLine("[{0}%]  downloading '{1}' ({2}/{3})...", totalDownloadedByte * 100 / response.ContentLength, name, totalDownloadedByte, response.ContentLength);
-                            }
-                        }
-
-                        this.Invoke(new Action(() =>
-                        {
-                            this.ProcessValue = 100;
-                            this.ProcessValuePercentage = 100;
-                            this.btn_StartStop.Text = "Start";
-                        }));
-
-                        // Global.Print("下载 '" + name + "' 完成   (大小: " + totalDownloadedByte.ToString() + " 字节) ...");
-                    }
-                }
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
 
         private void PictureBox_Img_Click(object sender, EventArgs e)
         {

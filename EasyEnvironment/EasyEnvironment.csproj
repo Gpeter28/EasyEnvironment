@@ -199,6 +199,7 @@
       <DependentUpon>MyList.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\AutoStart.cs" />
+    <Compile Include="Utils\DownloadHelper.cs" />
     <Compile Include="Utils\Enum.cs" />
     <Compile Include="Utils\FileHelper.cs" />
     <Compile Include="Utils\Options.cs" />

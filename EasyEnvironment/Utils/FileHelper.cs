@@ -20,7 +20,7 @@ namespace EasyEnvironment.Utils
             {
                 if (!exists) throw new Exception("No File To Resume");
 
-                var currentChecksum = CalculateMD5(filePath);
+                var currentChecksum = CalculateMd5(filePath);
                 if (currentChecksum != lastChecksum) throw new Exception("File Validation Failed");
                 else return new FileStream(filePath, FileMode.Append, FileAccess.Write);
             }
@@ -31,7 +31,7 @@ namespace EasyEnvironment.Utils
             }
         }
 
-        public static string CalculateMD5(string fileName)
+        public static string CalculateMd5(string fileName)
         {
             using var md5 = MD5.Create();
             using var stream = File.OpenRead(fileName);
